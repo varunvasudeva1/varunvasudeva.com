@@ -12,23 +12,29 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
   </head>
   <body class="bg-gray-900">
     <NavBar />
-    <main class="flex flex-col items-flex-start justify-center h-full">
-      <section
-        class="flex flex-col items-start justify-center my-10 w-full h-full"
-      >
+    <main class="flex flex-col items-flex-start justify-center">
+      <section class="flex flex-col items-start justify-center my-10">
         <h1 class="font-sans text-8xl font-bold text-white">Hi, I'm Varun.</h1>
-        <h1 class="font-sans text-6xl font-bold text-white">
-          I design & build <span
-            class="bg-gradient-to-r from-cyan-500 to-purple-300 bg-clip-text text-transparent"
-            >reliable, scalable & performant
-          </span>
-          software.
-        </h1>
+        <div class="flex flex-row items-start space-x-2">
+          <h1 class="font-sans text-6xl font-bold text-white">I</h1>
+          <div class="flex flex-col items-start">
+            <h1
+              class="font-sans text-6xl font-bold bg-gradient-to-r from-cyan-400 to-lime-400 bg-clip-text text-transparent"
+            >
+              build software.
+            </h1>
+            <h1
+              class="font-sans text-6xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent"
+            >
+              make music.
+            </h1>
+          </div>
+        </div>
       </section>
 
-      <p1 class="font-mono text-lg text-white"> New!</p1>
+      <p1 class="font-mono self-end text-lg text-white"> NEW!</p1>
       <section
-        class="flex flex-row items-center justify-center mb-10 w-full h-full bg-slate-800 rounded-lg p-10 shadow-xl"
+        class="flex flex-row items-center justify-center mb-10 bg-slate-800 rounded-lg p-10 shadow-xl"
       >
         <img class="w-1/3 h-1/3" src="src/images/archive-logo.png" />
         <div class="flex flex-col items-start justify-center mx-5 space-y-3">
@@ -47,7 +53,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
             allowing users to access their logs quickly and easily.
           </p>
           <a
-            class="font-mono bg-purple-300 text-purple-900 text-sm font-semibold p-4 rounded-full flex text-center items-center justify-center"
+            class="font-mono bg-purple-300 text-purple-900 text-sm font-semibold p-4 rounded-full flex text-center items-center justify-center self-center"
             href="https://apps.apple.com/us/app/archive-ai-powered-journaling/id1615879510"
             >Download on the App Store</a
           >
