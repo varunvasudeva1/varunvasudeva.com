@@ -15,6 +15,7 @@
  * This sub-page contains a list of my songs.
  */
 import { useState } from "react";
+import { RiCodeSSlashFill, RiVoiceprintFill } from "react-icons/ri";
 
 const Intro = () => {
   const [page, setPage] = useState<"code" | "music">("code");
@@ -22,12 +23,14 @@ const Intro = () => {
   const choiceList: {
     index: number;
     text: string;
+    icon: JSX.Element;
     page: "code" | "music";
     className: string;
   }[] = [
     {
       index: 0,
       text: "build software.",
+      icon: <RiCodeSSlashFill />,
       page: "code",
       className: `font-sans text-6xl font-bold bg-gradient-to-r from-cyan-400 to-lime-400 bg-clip-text text-transparent ${
         page === "code" ? "" : ""
@@ -36,6 +39,7 @@ const Intro = () => {
     {
       index: 1,
       text: "make music.",
+      icon: <RiVoiceprintFill />,
       page: "music",
       className: `font-sans text-6xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent ${
         page === "music" ? "" : ""
@@ -52,13 +56,15 @@ const Intro = () => {
         <div className="flex flex-col items-start">
           {choiceList.map((choice) => (
             <div
-              className="flex flex-row w-full items-center justify-start space-x-2 hover:cursor-pointer hover:opacity-60"
+              className={`flex flex-row w-full items-center justify-start space-x-2 hover:cursor-pointer hover:opacity-60 ${
+                page === choice.page ? "opacity-100" : "opacity-80"
+              }`}
               onClick={() => {
                 setPage(choice.page);
               }}
             >
               <h1
-                className={`font-sans text-6xl font-bold ${
+                className={`font-sans font-bold text-6xl ${
                   page === choice.page ? "text-white" : "text-gray-500"
                 }`}
               >
@@ -68,19 +74,13 @@ const Intro = () => {
                 <h1 key={choice.index} className={choice.className}>
                   {choice.text}
                 </h1>
-                {page === choice.page ? (
-                  <div className="flex flex-row items-center">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                  </div>
-                ) : (
-                  <div className="flex flex-row items-center">
-                    <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                    <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                    <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                  </div>
-                )}
+                <div
+                  className={`text-6xl ${
+                    page === choice.page ? "text-white" : "text-gray-500"
+                  }`}
+                >
+                  {choice.icon}
+                </div>
               </div>
             </div>
           ))}
