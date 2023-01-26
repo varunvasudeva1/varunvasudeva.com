@@ -2,8 +2,10 @@
 import BaseHead from "../components/BaseHead.astro";
 import NavBar from "../components/NavBar.astro";
 import Footer from "../components/Footer.astro";
-import Main from "../components/Main";
+import Switcher from "../components/Switcher";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import Code from "../components/Code";
+import Music from "../components/Music";
 ---
 
 <!DOCTYPE html>
@@ -14,8 +16,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
   <body class="bg-gray-900">
     <NavBar />
     <main class="flex flex-col items-flex-start justify-center">
-      <Main client:load />
+      <Switcher client:load />
     </main>
+    <div class="mt-10">
+      <Code client:load />
+      <Music client:load />
+    </div>
     <Footer />
   </body>
 </html>

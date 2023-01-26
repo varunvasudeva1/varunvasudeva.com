@@ -1,8 +1,8 @@
 /**
- * Main
+ * Switcher
  * This component is what the user first sees when they visit the site.
  * It contains my name and a description switcher which toggles between
- * three sub-pages.
+ * three sub-pages in index.astro.
  *
  * Sub-pages:
  * 1. Code
@@ -18,18 +18,16 @@
  * Write:
  * This sub-page contains a list of my articles.
  */
-import { useState } from "react";
 import {
   RiCodeSSlashFill,
   RiVoiceprintFill,
   RiQuillPenLine,
 } from "react-icons/ri";
-import Code from "./Code";
-import Music from "./Music";
+import { useStore } from "@nanostores/react";
+import { selectedPage } from "../switcher";
 
-const Main = () => {
-  const [page, setPage] = useState<"code" | "music" | "write">("code");
-
+const Switcher = () => {
+  const $page = useStore(selectedPage);
   const choiceList: {
     index: number;
     text: string;
@@ -42,27 +40,24 @@ const Main = () => {
       text: "build software.",
       icon: <RiCodeSSlashFill />,
       page: "code",
-      className: `font-sans text-6xl font-bold bg-gradient-to-r from-cyan-400 to-lime-400 bg-clip-text text-transparent ${
-        page === "code" ? "" : ""
-      }`,
+      className:
+        "font-sans text-6xl font-bold bg-gradient-to-r from-cyan-400 to-lime-400 bg-clip-text text-transparent",
     },
     {
       index: 1,
       text: "make music.",
       icon: <RiVoiceprintFill />,
       page: "music",
-      className: `font-sans text-6xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent ${
-        page === "music" ? "" : ""
-      }`,
+      className:
+        "font-sans text-6xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent",
     },
     {
       index: 2,
       text: "write.",
       icon: <RiQuillPenLine />,
       page: "write",
-      className: `font-sans text-6xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent ${
-        page === "write" ? "" : ""
-      }`,
+      className:
+        "font-sans text-6xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent",
     },
   ];
 
@@ -77,15 +72,15 @@ const Main = () => {
             {choiceList.map((choice) => (
               <div
                 className={`flex flex-row w-full items-center justify-start space-x-2 hover:cursor-pointer hover:opacity-60 ${
-                  page === choice.page ? "opacity-100" : "opacity-80"
+                  $page === choice.page ? "opacity-100" : "opacity-80"
                 }`}
                 onClick={() => {
-                  setPage(choice.page);
+                  selectedPage.set(choice.page);
                 }}
               >
                 <h1
                   className={`font-sans font-bold text-6xl ${
-                    page === choice.page ? "text-white" : "text-gray-500"
+                    $page === choice.page ? "text-white" : "text-gray-500"
                   }`}
                 >
                   I
@@ -96,7 +91,7 @@ const Main = () => {
                   </h1>
                   <div
                     className={`text-6xl ${
-                      page === choice.page ? "text-white" : "text-gray-500"
+                      $page === choice.page ? "text-white" : "text-gray-500"
                     }`}
                   >
                     {choice.icon}
@@ -107,12 +102,8 @@ const Main = () => {
           </div>
         </div>
       </div>
-
-      <div>
-        {page === "code" ? <Code /> : page === "music" ? <Music /> : null}
-      </div>
     </section>
   );
 };
 
-export default Main;
+export default Switcher;
