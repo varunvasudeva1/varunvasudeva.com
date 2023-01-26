@@ -12,7 +12,7 @@ const Code = () => {
         <section>
           <p className="font-mono self-end text-lg text-white">NEW!</p>
           <Card className="flex flex-row items-center justify-center">
-            <img className="w-1/3 h-1/3" src="src/images/archive-logo.png" />
+            <img className="w-1/5 h-1/5" src="src/images/archive-logo.png" />
             <div className="flex flex-col items-start justify-center mx-5 space-y-3">
               <div className="flex flex-row items-baseline justify-center space-x-3">
                 <h1 className="font-sans text-2xl font-bold text-white">

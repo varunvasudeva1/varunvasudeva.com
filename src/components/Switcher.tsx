@@ -41,7 +41,7 @@ const Switcher = () => {
       icon: <RiCodeSSlashFill />,
       page: "code",
       className:
-        "font-sans text-6xl font-bold bg-gradient-to-r from-cyan-400 to-lime-400 bg-clip-text text-transparent",
+        "font-sans text-4xl font-bold bg-gradient-to-r from-cyan-400 to-lime-400 bg-clip-text text-transparent",
     },
     {
       index: 1,
@@ -49,7 +49,7 @@ const Switcher = () => {
       icon: <RiVoiceprintFill />,
       page: "music",
       className:
-        "font-sans text-6xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent",
+        "font-sans text-4xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent",
     },
     {
       index: 2,
@@ -57,14 +57,14 @@ const Switcher = () => {
       icon: <RiQuillPenLine />,
       page: "write",
       className:
-        "font-sans text-6xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent",
+        "font-sans text-4xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent",
     },
   ];
 
   return (
     <section className="flex flex-col items-start justify-center space-y-20">
       <div>
-        <h1 className="font-sans text-8xl font-bold text-white">
+        <h1 className="font-sans text-6xl font-bold text-white">
           Hi, I'm Varun.
         </h1>
         <div className="mt-5">
@@ -79,7 +79,7 @@ const Switcher = () => {
                 }}
               >
                 <h1
-                  className={`font-sans font-bold text-6xl ${
+                  className={`font-sans font-bold text-4xl ${
                     $page === choice.page ? "text-white" : "text-gray-500"
                   }`}
                 >
@@ -90,7 +90,7 @@ const Switcher = () => {
                     {choice.text}
                   </h1>
                   <div
-                    className={`text-6xl ${
+                    className={`text-4xl ${
                       $page === choice.page ? "text-white" : "text-gray-500"
                     }`}
                   >
