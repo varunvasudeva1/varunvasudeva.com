@@ -2,31 +2,39 @@
  * Main
  * This component is what the user first sees when they visit the site.
  * It contains my name and a description switcher which toggles between
- * two different sub-pages.
+ * three sub-pages.
  *
  * Sub-pages:
  * 1. Code
  * 2. Music
+ * 3. Write
  *
  * Code:
  * This sub-page contains a list of my projects and a link to my GitHub.
  *
  * Music:
  * This sub-page contains a list of my songs.
+ *
+ * Write:
+ * This sub-page contains a list of my articles.
  */
 import { useState } from "react";
-import { RiCodeSSlashFill, RiVoiceprintFill } from "react-icons/ri";
+import {
+  RiCodeSSlashFill,
+  RiVoiceprintFill,
+  RiQuillPenLine,
+} from "react-icons/ri";
 import Code from "./Code";
 import Music from "./Music";
 
 const Main = () => {
-  const [page, setPage] = useState<"code" | "music">("code");
+  const [page, setPage] = useState<"code" | "music" | "write">("code");
 
   const choiceList: {
     index: number;
     text: string;
     icon: JSX.Element;
-    page: "code" | "music";
+    page: "code" | "music" | "write";
     className: string;
   }[] = [
     {
@@ -45,6 +53,15 @@ const Main = () => {
       page: "music",
       className: `font-sans text-6xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent ${
         page === "music" ? "" : ""
+      }`,
+    },
+    {
+      index: 2,
+      text: "write.",
+      icon: <RiQuillPenLine />,
+      page: "write",
+      className: `font-sans text-6xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent ${
+        page === "write" ? "" : ""
       }`,
     },
   ];
@@ -91,7 +108,9 @@ const Main = () => {
         </div>
       </div>
 
-      <div>{page === "code" ? <Code /> : <Music />}</div>
+      <div>
+        {page === "code" ? <Code /> : page === "music" ? <Music /> : null}
+      </div>
     </section>
   );
 };
