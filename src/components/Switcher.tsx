@@ -23,16 +23,13 @@ import {
   RiVoiceprintFill,
   RiQuillPenLine,
 } from "react-icons/ri";
-import { useStore } from "@nanostores/react";
-import { selectedPage } from "../switcher";
 
 const Switcher = () => {
-  const $page = useStore(selectedPage);
   const choiceList: {
     index: number;
     text: string;
     icon: JSX.Element;
-    page: "code" | "music" | "write";
+    page: "code" | "music" | "articles";
     className: string;
   }[] = [
     {
@@ -55,7 +52,7 @@ const Switcher = () => {
       index: 2,
       text: "write.",
       icon: <RiQuillPenLine />,
-      page: "write",
+      page: "articles",
       className:
         "font-sans text-4xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent",
     },
@@ -70,35 +67,19 @@ const Switcher = () => {
         <div className="mt-5">
           <div className="flex flex-col items-start">
             {choiceList.map((choice) => (
-              <div
+              <a
                 key={choice.index}
-                className={`flex flex-row w-full items-center justify-start space-x-2 hover:cursor-pointer hover:opacity-60 ${
-                  $page === choice.page ? "opacity-100" : "opacity-80"
-                }`}
-                onClick={() => {
-                  selectedPage.set(choice.page);
-                }}
+                className="flex flex-row w-full items-center justify-start space-x-2 hover:cursor-pointer hover:opacity-60"
+                href={`/${choice.page}`}
               >
-                <h1
-                  className={`font-sans font-bold text-4xl ${
-                    $page === choice.page ? "text-white" : "text-gray-500"
-                  }`}
-                >
-                  I
-                </h1>
+                <h1 className="font-sans font-bold text-4xl text-white">I</h1>
                 <div className="flex flex-row w-full items-center justify-between space-x-10">
                   <h1 key={choice.index} className={choice.className}>
                     {choice.text}
                   </h1>
-                  <div
-                    className={`text-4xl ${
-                      $page === choice.page ? "text-white" : "text-gray-500"
-                    }`}
-                  >
-                    {choice.icon}
-                  </div>
+                  <div className="text-4xl text-white">{choice.icon}</div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

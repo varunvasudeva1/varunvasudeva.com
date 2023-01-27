@@ -1,6 +1,5 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import NavBar from "../components/NavBar.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
@@ -18,8 +17,8 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="bg-gray-900">
-    <NavBar />
     <main>
+      <h1 class="font-sans font-bold text-4xl text-white">Articles</h1>
       <section>
         <ul>
           {

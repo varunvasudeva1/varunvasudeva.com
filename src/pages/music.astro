@@ -1,7 +1,5 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Switcher from "../components/Switcher";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 ---
 
@@ -10,8 +8,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
+
   <body class="bg-gray-900">
-    <Switcher />
-    <Footer />
+    <h1 class="font-sans font-bold text-4xl text-white">Music</h1>
   </body>
 </html>
