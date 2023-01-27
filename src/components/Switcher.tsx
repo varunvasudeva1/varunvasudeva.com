@@ -71,6 +71,7 @@ const Switcher = () => {
           <div className="flex flex-col items-start">
             {choiceList.map((choice) => (
               <div
+                key={choice.index}
                 className={`flex flex-row w-full items-center justify-start space-x-2 hover:cursor-pointer hover:opacity-60 ${
                   $page === choice.page ? "opacity-100" : "opacity-80"
                 }`}
