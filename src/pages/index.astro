@@ -23,18 +23,27 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
     renderer.setSize(window.innerWidth, window.innerHeight);
     container?.appendChild(renderer.domElement);
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    // Add code for an infinite grid whose camera moves with the mouse hover
 
-    camera.position.z = 2;
+    const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+    const material = new THREE.LineDashedMaterial({
+      color: 0xffffff,
+      dashSize: 3,
+      gapSize: 1,
+    });
+    const torus = new THREE.Line(geometry, material);
+    torus.computeLineDistances();
+    scene.add(torus);
+
+    camera.position.z = 5;
+    camera.position.y = 5;
 
     const animate = function () {
       requestAnimationFrame(animate);
 
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+      // Rotate the torus such that it looks like it's spinning on the z-axis
+      torus.rotation.x += 0.01;
+      torus.rotation.y += 0.01;
 
       renderer.render(scene, camera);
     };
