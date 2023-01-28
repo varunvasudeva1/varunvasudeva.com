@@ -38,7 +38,7 @@ const Switcher = () => {
       icon: <RiCodeSSlashFill />,
       page: "code",
       className:
-        "font-sans text-4xl font-bold bg-gradient-to-r from-cyan-400 to-lime-400 bg-clip-text text-transparent",
+        "font-sans text-4xl sm:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-lime-400 bg-clip-text text-transparent",
     },
     {
       index: 1,
@@ -46,7 +46,7 @@ const Switcher = () => {
       icon: <RiVoiceprintFill />,
       page: "music",
       className:
-        "font-sans text-4xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent",
+        "font-sans text-4xl sm:text-5xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent",
     },
     {
       index: 2,
@@ -54,14 +54,14 @@ const Switcher = () => {
       icon: <RiQuillPenLine />,
       page: "articles",
       className:
-        "font-sans text-4xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent",
+        "font-sans text-4xl sm:text-5xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent",
     },
   ];
 
   return (
     <section className="flex flex-col items-center justify-center w-full h-full">
       <div>
-        <h1 className="font-sans text-6xl font-bold text-white">
+        <h1 className="font-sans text-5xl sm:text-6xl font-bold text-white">
           Hi, I'm Varun.
         </h1>
         <div className="mt-5">
@@ -72,12 +72,16 @@ const Switcher = () => {
                 className="flex flex-row w-full items-center justify-start space-x-2 hover:cursor-pointer hover:opacity-60"
                 href={`/${choice.page}`}
               >
-                <h1 className="font-sans font-bold text-4xl text-white">I</h1>
+                <h1 className="font-sans font-bold text-4xl sm:text-5xl text-white">
+                  I
+                </h1>
                 <div className="flex flex-row w-full items-center justify-between space-x-10">
                   <h1 key={choice.index} className={choice.className}>
                     {choice.text}
                   </h1>
-                  <div className="text-4xl text-white">{choice.icon}</div>
+                  <div className="text-4xl sm:text-5xl text-white">
+                    {choice.icon}
+                  </div>
                 </div>
               </a>
             ))}
