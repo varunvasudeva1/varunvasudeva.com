@@ -1,7 +1,5 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import Page from "../layouts/Page.astro";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
@@ -11,44 +9,31 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 );
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="bg-gray-900">
-    <main>
-      <h1 class="font-sans font-bold text-4xl text-white">Articles</h1>
-      <section>
-        <ul>
-          {
-            posts.map((post) => (
-              <div class="flex flex-col justify-center border-b-2 border-purple-200 hover:bg-purple-900 p-3">
-                <a
-                  class="text-gray-200 text-lg font-sans font-semibold visited:text-purple-300"
-                  href={post.url}
-                >
-                  {post.frontmatter.title}
-                </a>
-                <p1
-                  class="text-gray-400 text-xs"
-                  datetime={post.frontmatter.pubDate}
-                >
-                  {new Date(post.frontmatter.pubDate).toLocaleDateString(
-                    "en-us",
-                    {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    }
-                  )}
-                </p1>
-              </div>
-            ))
-          }
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+<Page title="Articles">
+  <section>
+    <ul>
+      {
+        posts.map((post) => (
+          <div class="flex flex-col justify-center border-b-2 border-purple-200 hover:bg-purple-900 p-3">
+            <a
+              class="text-gray-200 text-lg font-sans font-semibold visited:text-purple-300"
+              href={post.url}
+            >
+              {post.frontmatter.title}
+            </a>
+            <p1
+              class="text-gray-400 text-xs"
+              datetime={post.frontmatter.pubDate}
+            >
+              {new Date(post.frontmatter.pubDate).toLocaleDateString("en-us", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </p1>
+          </div>
+        ))
+      }
+    </ul>
+  </section>
+</Page>

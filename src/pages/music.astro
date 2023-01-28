@@ -1,15 +1,5 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import Page from "../layouts/Page.astro";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-
-  <body class="bg-gray-900">
-    <h1 class="font-sans font-bold text-4xl text-white">Music</h1>
-  </body>
-</html>
+<Page title="Music" />

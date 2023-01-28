@@ -1,74 +1,56 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Card from "../layouts/Card";
+import Page from "../layouts/Page.astro";
 import Project from "../layouts/Project";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="bg-gray-900">
-    <main>
-      <h1 class="font-sans font-bold text-4xl text-white">Code</h1>
-      <div>
-        {/* Featured - Archive */}
-        <section>
-          <p class="font-mono self-end text-lg text-white">NEW!</p>
-          <Card className="flex flex-row items-center justify-center">
-            <img class="w-1/5 h-1/5" src="src/images/archive-logo.png" />
-            <div
-              class="flex flex-col items-start justify-center mx-5 space-y-3"
-            >
-              <div
-                class="flex flex-row items-baseline justify-center space-x-3"
-              >
-                <h1 class="font-sans text-2xl font-bold text-white">Archive</h1>
-                <a
-                  class="text-purple-300 text-base font-mono"
-                  href="https://archiveapp.io"
-                >
-                  archiveapp.io
-                </a>
-              </div>
-              <p class="font-sans text-base text-white">
-                A highly personalizable, AI-powered journaling app that allows
-                users to record their thoughts, feelings, and memories. Archive
-                uses natural language processing to analyze logs and provide
-                insights on their sentiments. It also features full-text search
-                over entries, allowing users to access their logs quickly and
-                easily.
-              </p>
-              <a
-                class="font-mono bg-purple-300 text-purple-900 text-sm font-semibold p-4 rounded-full flex text-center items-center justify-center self-center"
-                href="https://apps.apple.com/us/app/archive-ai-powered-journaling/id1615879510"
-              >
-                Download on the App Store
-              </a>
-            </div>
-          </Card>
-        </section>
-
-        {/* Showcase */}
-        <section class="flex flex-col items-center justify-center">
-          <h1 class="font-sans text-4xl font-bold text-white space-y-10">
-            Project Showcase
-          </h1>
-
-          <div class="flex flex-row items-center justify-center p-5 space-x-5">
-            {
-              [1].map((i) => (
-                <Project
-                  title="Project"
-                  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut odio et tortor auctor finibus at eu turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris elit augue, congue nec dictum nec, sollicitudin ac mauris. Donec sollicitudin bibendum sollicitudin. Mauris convallis, justo vel dictum posuere, lacus erat pulvinar dolor, at dapibus lorem velit ut enim. Praesent sit amet odio vehicula, malesuada erat non, ultricies odio. In vitae consectetur nisl. Nulla at sem ut lectus placerat semper. Proin non vulputate lectus. Maecenas laoreet pulvinar nunc, non imperdiet nunc convallis in."
-                />
-              ))
-            }
-          </div>
-        </section>
+<Page title="Code">
+  <section>
+    <p class="font-mono self-end text-lg text-white">NEW!</p>
+    <Card className="flex flex-row items-center justify-center">
+      <img class="w-1/5 h-1/5" src="src/images/archive-logo.png" />
+      <div class="flex flex-col items-start justify-center mx-5 space-y-3">
+        <div class="flex flex-row items-baseline justify-center space-x-3">
+          <h1 class="font-sans text-2xl font-bold text-white">Archive</h1>
+          <a
+            class="text-purple-300 text-base font-mono"
+            href="https://archiveapp.io"
+          >
+            archiveapp.io
+          </a>
+        </div>
+        <p class="font-sans text-base text-white">
+          A highly personalizable, AI-powered journaling app that allows users
+          to record their thoughts, feelings, and memories. Archive uses natural
+          language processing to analyze logs and provide insights on their
+          sentiments. It also features full-text search over entries, allowing
+          users to access their logs quickly and easily.
+        </p>
+        <a
+          class="font-mono bg-purple-300 text-purple-900 text-sm font-semibold p-4 rounded-full flex text-center items-center justify-center self-center"
+          href="https://apps.apple.com/us/app/archive-ai-powered-journaling/id1615879510"
+        >
+          Download on the App Store
+        </a>
       </div>
-    </main>
-  </body>
-</html>
+    </Card>
+  </section>
+
+  {/* Showcase */}
+  <section class="flex flex-col items-center justify-center">
+    <h1 class="font-sans text-4xl font-bold text-white space-y-10">
+      Project Showcase
+    </h1>
+
+    <div class="flex flex-row items-center justify-center p-5 space-x-5">
+      {
+        [1].map((i) => (
+          <Project
+            title="Project"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut odio et tortor auctor finibus at eu turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris elit augue, congue nec dictum nec, sollicitudin ac mauris. Donec sollicitudin bibendum sollicitudin. Mauris convallis, justo vel dictum posuere, lacus erat pulvinar dolor, at dapibus lorem velit ut enim. Praesent sit amet odio vehicula, malesuada erat non, ultricies odio. In vitae consectetur nisl. Nulla at sem ut lectus placerat semper. Proin non vulputate lectus. Maecenas laoreet pulvinar nunc, non imperdiet nunc convallis in."
+          />
+        ))
+      }
+    </div>
+  </section>
+</Page>
