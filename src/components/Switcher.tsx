@@ -59,7 +59,7 @@ const Switcher = () => {
   ];
 
   return (
-    <section className="flex flex-col items-start justify-center space-y-20">
+    <section className="flex flex-col items-center justify-center w-full h-full">
       <div>
         <h1 className="font-sans text-6xl font-bold text-white">
           Hi, I'm Varun.
