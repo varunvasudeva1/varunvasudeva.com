@@ -7,12 +7,47 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
+  <script>
+    import * as THREE from "three";
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+
+    const renderer = new THREE.WebGLRenderer();
+    const container = document.getElementById("container");
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container?.appendChild(renderer.domElement);
+
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    camera.position.z = 2;
+
+    const animate = function () {
+      requestAnimationFrame(animate);
+
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+
+      renderer.render(scene, camera);
+    };
+
+    animate();
+  </script>
+
+  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
   <body
     class="flex flex-col justify-center items-center w-screen h-screen bg-gray-900"
   >
+    <div id="container" class="absolute top- left-0 -z-10"></div>
     <Switcher />
     <Footer />
   </body>
