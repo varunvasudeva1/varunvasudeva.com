@@ -1,0 +1,14 @@
+---
+title: "Card";
+description: "A Card component for displaying content in a card-like format.";
+
+const {
+  className,
+}: {
+  className?: string;
+} = Astro.props;
+---
+
+<div class={`flex mb-10 bg-slate-800 rounded-lg p-10 shadow-xl ${className}`}>
+  <slot />
+</div>
