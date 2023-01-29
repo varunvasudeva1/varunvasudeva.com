@@ -23,7 +23,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
     renderer.setSize(window.innerWidth, window.innerHeight);
     container?.appendChild(renderer.domElement);
 
-    const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+    const geometry = new THREE.TorusGeometry(13, 3, 40, 100);
     const material = new THREE.LineDashedMaterial({
       color: 0xffffff,
       dashSize: 3,
@@ -34,12 +34,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
     scene.add(torus);
 
     camera.position.z = 10;
-    camera.position.y = 0;
+    camera.position.y = -3;
+
+    torus.rotation.x = 0.5;
 
     const animate = function () {
       requestAnimationFrame(animate);
 
-      torus.rotation.x += 0.002;
       torus.rotation.z += 0.001;
 
       renderer.render(scene, camera);
@@ -50,13 +51,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
   <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 
-  <body
-    class="flex flex-col justify-center items-center w-screen h-screen bg-black"
-  >
-    <div id="container" class="fixed top-0 left-0 -z-10"></div>
-    <div class="relative z-10">
-      <Switcher />
-      <Footer />
+  <body class="flex flex-col justify-center items-center bg-black p-0">
+    <div class="h-screen w-screen">
+      <div id="container" class="absolute -z-10"></div>
+      <div
+        class="absolute h-screen w-screen z-10 bg-gradient-to-b from-transparent to-black"
+      >
+        <Switcher />
+      </div>
     </div>
+
+    <Footer />
   </body>
 </html>
