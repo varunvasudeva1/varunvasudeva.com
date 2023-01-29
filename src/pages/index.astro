@@ -7,13 +7,56 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
+  <script>
+    import * as THREE from "three";
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+
+    const renderer = new THREE.WebGLRenderer();
+    const container = document.getElementById("container");
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container?.appendChild(renderer.domElement);
+
+    const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+    const material = new THREE.LineDashedMaterial({
+      color: 0xffffff,
+      dashSize: 3,
+      gapSize: 1,
+    });
+    const torus = new THREE.Line(geometry, material);
+    torus.computeLineDistances();
+    scene.add(torus);
+
+    camera.position.z = 10;
+    camera.position.y = 0;
+
+    const animate = function () {
+      requestAnimationFrame(animate);
+
+      torus.rotation.x += 0.002;
+      torus.rotation.z += 0.001;
+
+      renderer.render(scene, camera);
+    };
+
+    animate();
+  </script>
+
+  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
   <body
-    class="flex flex-col justify-center items-center w-screen h-screen bg-gray-900"
+    class="flex flex-col justify-center items-center w-screen h-screen bg-black"
   >
-    <Switcher />
-    <Footer />
+    <div id="container" class="fixed top-0 left-0 -z-10"></div>
+    <div class="relative z-10">
+      <Switcher />
+      <Footer />
+    </div>
   </body>
 </html>
