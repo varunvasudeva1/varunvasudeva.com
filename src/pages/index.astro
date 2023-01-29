@@ -23,8 +23,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
     renderer.setSize(window.innerWidth, window.innerHeight);
     container?.appendChild(renderer.domElement);
 
-    // Add code for an infinite grid whose camera moves with the mouse hover
-
     const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
     const material = new THREE.LineDashedMaterial({
       color: 0xffffff,
@@ -35,15 +33,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
     torus.computeLineDistances();
     scene.add(torus);
 
-    camera.position.z = 5;
-    camera.position.y = 5;
+    camera.position.z = 10;
+    camera.position.y = 0;
 
     const animate = function () {
       requestAnimationFrame(animate);
 
-      // Rotate the torus such that it looks like it's spinning on the z-axis
-      torus.rotation.x += 0.01;
-      torus.rotation.y += 0.01;
+      torus.rotation.x += 0.002;
+      torus.rotation.z += 0.001;
 
       renderer.render(scene, camera);
     };
@@ -54,10 +51,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
   <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 
   <body
-    class="flex flex-col justify-center items-center w-screen h-screen bg-gray-900"
+    class="flex flex-col justify-center items-center w-screen h-screen bg-black"
   >
-    <div id="container" class="absolute top- left-0 -z-10"></div>
-    <Switcher />
-    <Footer />
+    <div id="container" class="fixed top-0 left-0 -z-10"></div>
+    <div class="relative z-10">
+      <Switcher />
+      <Footer />
+    </div>
   </body>
 </html>
