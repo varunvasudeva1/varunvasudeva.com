@@ -5,55 +5,25 @@ import Project from "../layouts/Project.astro";
 ---
 
 <Page title="Code">
-  <section>
-    <p class="font-mono self-end text-lg text-white">NEW!</p>
-    <Card className="flex flex-row items-center justify-center">
-      <img class="w-1/5 h-1/5" src="src/images/archive-logo.png" />
-      <div class="flex flex-col items-start justify-center mx-5 space-y-3">
-        <div class="flex flex-row items-baseline justify-center space-x-3">
-          <h1 class="font-sans text-2xl font-bold text-white">Archive</h1>
-          <a
-            class="text-purple-300 text-base font-mono"
-            href="https://archiveapp.io"
-          >
-            archiveapp.io
-          </a>
-        </div>
-        <p class="font-sans text-base text-white">
-          A highly personalizable, AI-powered journaling app that allows users
-          to record their thoughts, feelings, and memories. Archive uses natural
-          language processing to analyze logs and provide insights on their
-          sentiments. It also features full-text search over entries, allowing
-          users to access their logs quickly and easily.
-        </p>
-        <a
-          class="font-mono bg-purple-300 text-purple-900 text-sm font-semibold p-4 rounded-full flex text-center items-center justify-center self-center"
-          href="https://apps.apple.com/us/app/archive-ai-powered-journaling/id1615879510"
-        >
-          Download on the App Store
-        </a>
-      </div>
-    </Card>
-  </section>
-
   {/* Showcase */}
   <section class="flex flex-col items-center justify-center">
-    <h1 class="font-sans text-4xl font-bold text-white space-y-10">
-      Project Showcase
-    </h1>
-
-    <div class="flex flex-row items-center justify-center p-5 space-x-5">
-      {
-        [1].map((i) => (
-          <Project
-            title="Predicting Electron Mass Using Neural Networks"
-            description="This project is a neural network that takes tabular data, collected at CERN's Large Hadron Collider and made available on Kaggle, such as electron spin, position, charge, etc. of a pair of electrons as input and predicts the invariant mass of the electron pair. The best performing model achieved an RMSE of 0.4984 using a test set consisting of 15% of the data."
-            image="/cern-lhc.jpg"
-            link="https://github.com/varunvasudeva1/cern-ec"
-            linkText="View on GitHub"
-          />
-        ))
-      }
+    <div class="flex flex-row flex-wrap items-center justify-center p-5">
+      <Project
+        title="Archive"
+        description="A highly personalizable, AI-powered journaling app that allows users to record their thoughts, feelings, and memories. Archive uses natural language processing to analyze logs and provide insights on their sentiments. It also features full-text search over entries, allowing users to access their logs quickly and easily."
+        image="src/images/archive-side-logo.png"
+        link="archiveapp.io"
+        linkText="archiveapp.io"
+        buttonLink="https://apps.apple.com/us/app/archive-ai-powered-journaling/id1615879510"
+        buttonLinkText="Download on the App Store"
+      />
+      <Project
+        title="Predicting Electron Mass Using Neural Networks"
+        description="This project is a neural network that takes tabular data, collected at CERN's Large Hadron Collider and made available on Kaggle, such as electron spin, position, charge, etc. of a pair of electrons as input and predicts the invariant mass of the electron pair. The best performing model achieved an RMSE of 0.4984 using a test set consisting of 15% of the data."
+        image="src/images/cern-lhc.jpg"
+        buttonLink="https://github.com/varunvasudeva1/cern-ec"
+        buttonLinkText="View on GitHub"
+      />
     </div>
   </section>
 </Page>

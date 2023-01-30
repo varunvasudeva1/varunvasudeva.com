@@ -9,6 +9,8 @@ const {
 } = Astro.props;
 ---
 
-<div class={`flex mb-10 bg-slate-800 rounded-lg p-10 shadow-xl ${className}`}>
+<div
+  class={`flex mb-10 bg-slate-800 rounded-lg p-10 shadow-xl max-w-lg ${className}`}
+>
   <slot />
 </div>
