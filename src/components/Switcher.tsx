@@ -22,7 +22,7 @@ import {
   RiCodeSSlashFill,
   RiVoiceprintFill,
   RiQuillPenLine,
-} from "react-icons/ri";
+} from "react-icons/ri/index";
 
 const Switcher = () => {
   const choiceList: {
