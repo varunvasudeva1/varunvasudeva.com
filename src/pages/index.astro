@@ -1,5 +1,4 @@
 ---
-import AnimatedBackground from "../components/AnimatedBackground.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Switcher from "../components/Switcher";
@@ -8,9 +7,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
 <!DOCTYPE html>
 <html lang="en">
-  <AnimatedBackground client:idle />
   <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-
   <body class="flex flex-col justify-center items-center bg-black p-0">
     <div class="h-screen w-screen">
       <div id="container" class="absolute -z-10"></div>
@@ -20,7 +17,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
         <Switcher />
       </div>
     </div>
-
     <Footer />
   </body>
 </html>
