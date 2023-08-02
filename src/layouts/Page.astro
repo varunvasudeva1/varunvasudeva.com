@@ -5,6 +5,16 @@ import NavBar from "../components/NavBar.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
 const { title }: { title?: string } = Astro.props;
+const background =
+  title === "Home"
+    ? "src/images/home.jpg"
+    : title === "Code"
+    ? "src/images/code.jpg"
+    : title === "Music"
+    ? "src/images/music.jpg"
+    : title === "Articles"
+    ? "src/images/articles.jpg"
+    : "src/images/home.jpg";
 ---
 
 <!DOCTYPE html>
@@ -13,11 +23,17 @@ const { title }: { title?: string } = Astro.props;
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="bg-gray-900">
+    <img
+      src={background}
+      alt={title ? title : "" + " background"}
+      class="fixed -z-20 inset-0 w-full h-full object-cover"
+    />
+    <div
+      class="fixed -z-10 inset-0 w-full h-full object-cover backdrop-blur-md bg-black bg-opacity-10"
+    >
+    </div>
     <NavBar />
     <main>
-      <h1 class="font-sans font-bold text-white my-5 text-4xl sm:text-5xl">
-        {title ? title : ""}
-      </h1>
       <slot />
       <Footer />
     </main>
