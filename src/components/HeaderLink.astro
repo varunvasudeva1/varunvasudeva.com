@@ -9,8 +9,10 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 
 <a
   href={href}
-  class="font-sans text-lg font-semibold text-purple-300 hover:text-purple-400"
-  {...props}
+  class={`font-sans text-md lg:text-lg font-semibold p-2 lg:p-3 bg-opacity-20 rounded-full text-purple-200 hover:text-purple-400 ${
+    isActive
+      ? "backdrop-blur-lg bg-purple-400 bg-opacity-20 text-purple-300"
+      : ""
+  }`}
+  {...props}><slot /></a
 >
-  <slot />
-</a>

@@ -2,19 +2,13 @@
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header>
-  <nav>
+<header class="flex flex-row items-center justify-center pt-4">
+  <nav
+    class="backdrop-blur-lg bg-slate-800 bg-opacity-20 rounded-full drop-shadow-md px-1 py-2 lg:py-3"
+  >
     <HeaderLink href="/">Home</HeaderLink>
     <HeaderLink href="/code">Code</HeaderLink>
     <HeaderLink href="/music">Music</HeaderLink>
     <HeaderLink href="/articles">Articles</HeaderLink>
   </nav>
 </header>
-<style>
-  header {
-    margin: 0em 0 2em;
-  }
-  h2 {
-    margin: 0.5em 0;
-  }
-</style>
