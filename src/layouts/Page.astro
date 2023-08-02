@@ -7,14 +7,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 const { title }: { title?: string } = Astro.props;
 const background =
   title === "Home"
-    ? "src/images/home.jpg"
+    ? "images/home.jpg"
     : title === "Code"
-    ? "src/images/code.jpg"
+    ? "images/code.jpg"
     : title === "Music"
-    ? "src/images/music.jpg"
+    ? "images/music.jpg"
     : title === "Articles"
-    ? "src/images/articles.jpg"
-    : "src/images/home.jpg";
+    ? "images/articles.jpg"
+    : "images/home.jpg";
 ---
 
 <!DOCTYPE html>
