@@ -25,11 +25,11 @@ const {
 } = Astro.props as Props;
 ---
 
-<Card className="flex-col items-start justify-center p-5 m-2">
+<Card className="flex-col items-start justify-start p-5 m-2">
   {
     image && (
       <img
-        class="w-full object-contain rounded-lg"
+        class="object-cover rounded-lg w-full h-64 lg:h-72"
         src={image}
         alt={title + ": " + description}
       />
