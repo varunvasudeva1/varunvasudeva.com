@@ -1,14 +1,57 @@
 ---
+import { FaGithub } from "react-icons/fa/index";
+import { IoMdMail } from "react-icons/io/index";
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header class="flex flex-row items-center justify-center pt-4">
+<header
+  class="fixed top-0 left-0 right-0 flex flex-row items-center justify-between p-4 z-50 bg-slate-900 rounded-b-lg shadow-lg"
+>
+  <h1 class="text-xl lg:text-2xl font-bold flex-grow">
+    <a href="/" class="text-white">Varun Vasudeva</a>
+  </h1>
+
+  <div class="sm:hidden flex items-center">
+    <button class="text-white text-xl lg:text-2xl mx-1 lg:mx-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="#fff"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+  </div>
+
   <nav
-    class="backdrop-blur-lg bg-slate-800 bg-opacity-20 rounded-full drop-shadow-md px-1 py-2 lg:py-3"
+    class="hidden sm:flex flex-row items-center justify-center mr-2 max-w-sm"
   >
     <HeaderLink href="/">Home</HeaderLink>
     <HeaderLink href="/code">Code</HeaderLink>
     <HeaderLink href="/music">Music</HeaderLink>
     <HeaderLink href="/articles">Articles</HeaderLink>
   </nav>
+
+  <div
+    class="hidden sm:flex flex-row items-center justify-end p-1 rounded-full bg-purple-800"
+  >
+    <a
+      href="https://github.com/varunvasudeva1"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <FaGithub
+        className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2"
+      />
+    </a>
+    <IoMdMail
+      className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2"
+    />
+  </div>
 </header>
