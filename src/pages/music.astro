@@ -1,5 +1,58 @@
 ---
+import Card from "../layouts/Card.astro";
+import ImageSection from "../layouts/ImageSection.astro";
 import Page from "../layouts/Page.astro";
 ---
 
-<Page title="Music" />
+<Page title="Music">
+  <section class="flex flex-col items-center justify-center my-10 mx-5">
+    <Card
+      className="flex flex-col items-center justify-center p-4 max-w-3xl border-gray-200 border border-opacity-40"
+    >
+      <img
+        src="/images/the-emergent.jpg"
+        alt="The Emergent"
+        class="rounded-full w-36 h-36 md:w-48 md:h-48 mb-5 transition-all duration-500 ease-in-out"
+      />
+      <h1
+        class="text-3xl lg:text-4xl font-bold mb-5 bg-gradient-to-tr from-purple-400 to-purple-200 bg-clip-text text-transparent"
+      >
+        The Emergent
+      </h1>
+      <p class="text-white text-lg lg:text-xl mb-5">
+        Under <span class="font-bold italic">The Emergent</span>, I produce and
+        release original songs and covers.
+      </p>
+    </Card>
+    <section class="flex flex-col items-center justify-center my-10 mx-5">
+      <iframe
+        class="w-full"
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/artist/6lDYTMD13WKM95XaCvdGET?utm_source=generator&theme=0"
+        height="352"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write;
+        encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+    </section>
+    <section class="flex flex-col items-center justify-center my-10 mx-5">
+      <h1 class="text-2xl lg:text-3xl text-white font-bold mb-5">
+        Discography
+      </h1>
+      <div class="grid grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-5">
+        <iframe
+          class="rounded-lg w-96 h-60"
+          src="https://www.youtube-nocookie.com/embed/IjcmVtCmrgE"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <iframe
+          class="rounded-lg w-96 h-60"
+          src="https://www.youtube-nocookie.com/embed/APgxhr7A_84"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+  </section>
+</Page>
