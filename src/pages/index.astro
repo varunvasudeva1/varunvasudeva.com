@@ -8,14 +8,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 <!DOCTYPE html>
 <html lang="en">
   <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  <body class="flex flex-col justify-center items-center bg-black p-0">
+  <body class="flex flex-col justify-center items-center bg-slate-950">
     <div class="h-screen w-screen">
-      <div id="container" class="absolute -z-10"></div>
-      <div
-        class="absolute h-screen w-screen z-10 bg-gradient-to-b from-transparent to-black"
-      >
         <Switcher />
-      </div>
     </div>
     <Footer />
   </body>
