@@ -5,32 +5,34 @@ import HeaderLink from "./HeaderLink.astro";
 ---
 
 <header
-  class="fixed top-0 left-0 right-0 flex flex-row items-center justify-between p-4 z-50 bg-slate-900 rounded-b-lg shadow-lg"
+  class="fixed top-0 left-0 right-0 flex flex-row items-center justify-between p-4 z-50 bg-slate-950 rounded-b-lg shadow-lg"
 >
-  <h1 class="text-xl lg:text-2xl font-bold flex-grow">
+  <h1
+    class="text-xl lg:text-2xl font-bold flex-grow transition-all duration-200"
+  >
     <a href="/" class="text-white">Varun Vasudeva</a>
   </h1>
 
-  <div class="sm:hidden flex items-center">
-    <button class="text-white text-xl lg:text-2xl mx-1 lg:mx-2">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="#fff"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16m-7 6h7"></path>
-      </svg>
-    </button>
-  </div>
+  <button
+    class="sm:hidden flex items-center text-white text-xl lg:text-2xl p-1 rounded-full transition-all duration-200 ease-in-out"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-5 w-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="#fff"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16m-7 6h7"></path>
+    </svg>
+  </button>
 
   <nav
-    class="hidden sm:flex flex-row items-center justify-center mr-2 max-w-sm"
+    class="hidden sm:flex flex-row items-center justify-center mr-2 max-w-sm transition-all duration-200 ease-in-out"
   >
     <HeaderLink href="/">Home</HeaderLink>
     <HeaderLink href="/code">Code</HeaderLink>
@@ -39,7 +41,7 @@ import HeaderLink from "./HeaderLink.astro";
   </nav>
 
   <div
-    class="hidden sm:flex flex-row items-center justify-end p-1 rounded-full bg-purple-800"
+    class="hidden sm:flex flex-row items-center justify-end p-1 rounded-full bg-purple-800 transition-all duration-200 ease-in-out"
   >
     <a
       href="https://github.com/varunvasudeva1"
@@ -47,11 +49,11 @@ import HeaderLink from "./HeaderLink.astro";
       rel="noopener noreferrer"
     >
       <FaGithub
-        className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2"
+        className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2 transition-all duration-200"
       />
     </a>
     <IoMdMail
-      className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2"
+      className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2 transition-all duration-200"
     />
   </div>
 </header>
