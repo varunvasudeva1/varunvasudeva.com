@@ -1,17 +1,226 @@
 ---
+import {
+  RiCodeSSlashFill,
+  RiQuillPenLine,
+  RiVoiceprintFill,
+} from "react-icons/ri/index";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
-import Switcher from "../components/Switcher";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { BsChevronDoubleDown } from "react-icons/bs/index";
+import Card from "../layouts/Card.astro";
+
+const choiceList = [
+  {
+    index: 0,
+    text: "build software.",
+    icon: "RiCodeSSlashFill",
+    page: "code",
+    className:
+      "font-sans text-4xl sm:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent",
+  },
+  {
+    index: 1,
+    text: "make music.",
+    icon: "RiVoiceprintFill",
+    page: "music",
+    className:
+      "font-sans text-4xl sm:text-5xl font-bold bg-gradient-to-r from-fuchsia-400 to-rose-400 bg-clip-text text-transparent",
+  },
+  {
+    index: 2,
+    text: "write.",
+    icon: "RiQuillPenLine",
+    page: "articles",
+    className:
+      "font-sans text-4xl sm:text-5xl font-bold bg-gradient-to-r from-red-400 to-amber-400 bg-clip-text text-transparent",
+  },
+];
+
+const factCards = [
+  {
+    index: 0,
+    title: "Job",
+    description: "Data Architect",
+    organization: "Capgemini",
+  },
+  {
+    index: 1,
+    title: "Education",
+    description: "B.S. Mathematics",
+    description2: "B.S. Data Science & Statistics",
+    organization: "Miami University, OH",
+  },
+  {
+    index: 2,
+    title: "Location",
+    description: "Atlanta, GA",
+  },
+  {
+    index: 3,
+    title: "Hobbies",
+    description: "Coding, Music Production, Writing, Movie Watching",
+  },
+  {
+    index: 4,
+    title: "Hometown",
+    description: "New Delhi, India",
+  },
+];
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   <body class="flex flex-col justify-center items-center bg-slate-950">
-    <div class="h-screen w-screen">
-        <Switcher />
-    </div>
-    <Footer />
+    <section
+      class="flex flex-col items-center justify-center w-screen min-h-screen bg-gradient-to-b from-emerald-700 to-teal-950"
+    >
+      <div
+        class="flex flex-col justify-start items-center space-y-2 max-w-md md:max-w-xl lg:max-w-2xl"
+      >
+        <div
+          class="w-36 h-36 sm:w-44 sm:h-44 p-2 bg-gradient-to-b from-emerald-700 to-teal-950 rounded-full"
+        >
+          <img
+            class="w-full h-full rounded-full"
+            src="/images/profile.jpg"
+            alt="Varun's profile picture"
+          />
+        </div>
+        <h1
+          class="font-sans text-5xl sm:text-6xl text-center font-bold text-white"
+        >
+          Hi, I'm Varun Vasudeva.
+        </h1>
+      </div>
+      <div class="mt-5">
+        <div class="flex flex-col items-start">
+          {
+            choiceList.map((choice) => (
+              <a
+                class="flex flex-row w-full items-center justify-start space-x-2 hover:cursor-pointer hover:opacity-60"
+                href={`/${choice.page}`}
+              >
+                <h1 class="font-sans font-bold text-4xl sm:text-5xl text-white">
+                  I
+                </h1>
+                <div class="flex flex-row w-full items-center justify-between space-x-10">
+                  <h1 class={choice.className}>{choice.text}</h1>
+                  <div class="text-4xl sm:text-5xl text-white">
+                    {choice.icon === "RiCodeSSlashFill" ? (
+                      <RiCodeSSlashFill />
+                    ) : (
+                      <RiVoiceprintFill />
+                    )}
+                  </div>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div class="flex flex-col items-center absolute bottom-5">
+        <h4 class="font-sans text-lg lg:text-xl mb-2 text-white">
+          Scroll down to learn more
+        </h4>
+        <BsChevronDoubleDown
+          className="text-2xl sm:text-3xl text-white animate-pulse"
+        />
+      </div>
+    </section>
+
+    <section
+      class="flex flex-col items-center justify-center w-screen min-h-screen bg-gradient-to-b from-teal-950 to-sky-700"
+    >
+      <div class="flex flex-col items-center sm:items-start p-2">
+        <h3 class="font-sans text-4xl sm:text-5xl m-4 font-bold text-white">
+          Quick facts.
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 p-2">
+          {
+            factCards.map((card) => (
+              <Card className="p-2 m-2 max-w-xs rounded-md">
+                <div class="flex flex-col items-start justify-start w-full space-y-2">
+                  <h4 class="font-sans font-semibold text-xl sm:text-2xl text-gray-200">
+                    {card.title.toLowerCase()}
+                  </h4>
+                  <div
+                    role="separator"
+                    class="w-full h-px rounded-full bg-white opacity-50"
+                  />
+                  <p class="font-mono text-lg sm:text-xl text-gray-200">
+                    {card.description}
+                  </p>
+                  {card.description2 && (
+                    <p class="font-mono text-lg sm:text-xl text-gray-200">
+                      {card.description2}
+                    </p>
+                  )}
+                  <p class="font-mono font-bold text-lg sm:text-xl text-white">
+                    {card.organization}
+                  </p>
+                </div>
+              </Card>
+            ))
+          }
+          <Card className="p-2 m-2 max-w-xs rounded-md">
+            <div
+              class="flex flex-col items-start justify-start w-full space-y-2"
+            >
+              <h4
+                class="font-sans font-semibold text-xl sm:text-2xl text-gray-200"
+              >
+                languages
+              </h4>
+              <div
+                role="separator"
+                class="w-full h-px rounded-full bg-white opacity-50"
+              >
+              </div>
+              <p class="font-mono text-lg sm:text-xl text-white">
+                English <span class="italic text-gray-400"> fluent</span>
+              </p>
+              <p class="font-mono text-lg sm:text-xl text-white">
+                Hindi <span class="italic text-gray-400"> fluent</span>
+              </p>
+              <p class="font-mono text-lg sm:text-xl text-white">
+                Arabic <span class="italic text-gray-400"> elementary</span>
+              </p>
+              <p class="font-mono text-lg sm:text-xl text-white">
+                French <span class="italic text-gray-400"> elementary</span>
+              </p>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="flex flex-col w-screen min-h-screen bg-gradient-to-b from-sky-700 to-violet-950"
+    >
+      <div
+        class="flex flex-col self-start justify-start items-start p-4 md:p-8 lg:p-10 max-w-xl"
+      >
+        <h3 class="font-sans text-4xl sm:text-5xl font-bold text-white">
+          Who are you?
+        </h3>
+        <p class="font-mono text-lg sm:text-xl text-white mt-4">
+          A 23 year old data architect by profession and software
+          engineer/musician by hobby.
+          <br />
+          <br />
+          At my core, I enjoy building things that are useful and beautiful. I aim
+          to create things that genuinely better peoples' lives - whether that be
+          through software, music, or writing.
+        </p>
+      </div>
+    </section>
+
+    <section
+      class="bg-gradient-to-b w-screen h-64 from-violet-950 to-amber-800 flex flex-col justify-end"
+    >
+      <Footer />
+    </section>
   </body>
 </html>
