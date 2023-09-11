@@ -7,14 +7,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 const { title }: { title?: string } = Astro.props;
 const background =
   title === "Home"
-    ? "images/home.jpg"
+    ? "transparent"
     : title === "Code"
-    ? "images/code.jpg"
+    ? "from-red-900 to-amber-700"
     : title === "Music"
-    ? "images/music.jpg"
+    ? "from-fuchsia-900 to-rose-700"
     : title === "Articles"
-    ? "images/articles.jpg"
-    : "images/home.jpg";
+    ? "from-emerald-900 to-cyan-700"
+    : "transparent";
 ---
 
 <!DOCTYPE html>
@@ -23,17 +23,13 @@ const background =
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="bg-slate-950">
-    <img
-      src={background}
-      alt={title ? title : "" + " background"}
-      class="fixed -z-20 inset-0 w-screen h-screen object-cover"
-    />
-    <div
-      class="fixed -z-10 inset-0 w-screen h-screen object-cover backdrop-blur-md bg-black bg-opacity-10"
+    <NavBar title={title} />
+    <main
+      class={`bg-gradient-to-br ${background} w-full min-h-screen z-0 pt-20`}
     >
-    </div>
-    <NavBar />
-    <main class="pt-20">
+      <h1 class="text-5xl md:text-6xl font-bold text-white pt-4 px-8">
+        {title}.
+      </h1>
       <slot />
       <Footer />
     </main>
