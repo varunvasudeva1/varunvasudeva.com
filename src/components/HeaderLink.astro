@@ -5,12 +5,23 @@ const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
 const isActive = href === pathname || href === pathname.replace(/\/$/, "");
+
+const colorClasses =
+  href === "/home"
+    ? "transparent"
+    : href === "/code"
+    ? "bg-orange-800"
+    : href === "/music"
+    ? "bg-pink-800"
+    : href === "/articles"
+    ? "bg-teal-800"
+    : "transparent";
 ---
 
 <a
   href={href}
-  class={`font-sans text-sm lg:text-md font-semibold py-1 px-2 lg:px-3 bg-opacity-20 rounded-full text-purple-200 hover:text-purple-400 ${
-    isActive ? "bg-gray-400 bg-opacity-20 text-purple-300" : ""
-  }`}
+  class={`font-sans text-sm lg:text-md font-semibold py-1 px-2 lg:px-3 rounded-lg text-gray-200 hover:text-opacity-60 ${colorClasses} ${
+    isActive ? "bg-opacity-100" : "bg-opacity-0"
+  } ${className}`}
   {...props}><slot /></a
 >
