@@ -1,5 +1,6 @@
 ---
 import Page from "../layouts/Page.astro";
+import Card from "../layouts/Card.astro";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./articles/*.{md,mdx}")).sort(
@@ -10,30 +11,37 @@ const posts = (await Astro.glob("./articles/*.{md,mdx}")).sort(
 ---
 
 <Page title="Articles">
-  <section>
+  <section class="pt-10">
     <ul>
-      {
-        posts.map((post) => (
-          <div class="flex flex-col justify-center border-b-2 border-purple-200 hover:bg-purple-900 p-3">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4"
+      >
+        {
+          posts.map((post) => (
             <a
-              class="text-gray-200 text-lg font-sans font-semibold visited:text-purple-300"
+              class="text-gray-200 text-lg font-sans font-semibold visited:text-teal-500"
               href={post.url}
             >
-              {post.frontmatter.title}
+              <Card className="flex flex-col p-4 h-24">
+                {post.frontmatter.title}
+                <p1
+                  class="text-gray-300 text-md font-sans font-normal"
+                  datetime={post.frontmatter.pubDate}
+                >
+                  {new Date(post.frontmatter.pubDate).toLocaleDateString(
+                    "en-us",
+                    {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    }
+                  )}
+                </p1>
+              </Card>
             </a>
-            <p1
-              class="text-gray-400 text-xs"
-              datetime={post.frontmatter.pubDate}
-            >
-              {new Date(post.frontmatter.pubDate).toLocaleDateString("en-us", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
-            </p1>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
     </ul>
   </section>
 </Page>
