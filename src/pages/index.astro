@@ -13,7 +13,7 @@ import Card from "../layouts/Card.astro";
 const choiceList = [
   {
     index: 0,
-    text: "build software.",
+    text: "build software",
     icon: "RiCodeSSlashFill",
     page: "code",
     className:
@@ -21,7 +21,7 @@ const choiceList = [
   },
   {
     index: 1,
-    text: "make music.",
+    text: "make music",
     icon: "RiVoiceprintFill",
     page: "music",
     className:
@@ -29,7 +29,7 @@ const choiceList = [
   },
   {
     index: 2,
-    text: "write.",
+    text: "write",
     icon: "RiQuillPenLine",
     page: "articles",
     className:
@@ -59,7 +59,7 @@ const factCards = [
   {
     index: 3,
     title: "Hobbies",
-    description: "Coding, Music Production, Writing, Movie Watching",
+    description: "Coding, Music Production, Cooking, Writing, Movie Watching",
   },
   {
     index: 4,
@@ -91,7 +91,7 @@ const factCards = [
         <h1
           class="font-sans text-5xl sm:text-6xl text-center font-bold text-white"
         >
-          Hi, I'm Varun Vasudeva.
+          Hi, I'm Varun Vasudeva
         </h1>
       </div>
       <div class="mt-5">
@@ -110,8 +110,10 @@ const factCards = [
                   <div class="text-4xl sm:text-5xl text-white">
                     {choice.icon === "RiCodeSSlashFill" ? (
                       <RiCodeSSlashFill />
-                    ) : (
+                    ) : choice.icon === "RiVoiceprintFill" ? (
                       <RiVoiceprintFill />
+                    ) : (
+                      <RiQuillPenLine />
                     )}
                   </div>
                 </div>
@@ -135,7 +137,7 @@ const factCards = [
     >
       <div class="flex flex-col items-center sm:items-start p-2">
         <h3 class="font-sans text-4xl sm:text-5xl m-4 font-bold text-white">
-          Quick facts.
+          Quick facts
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 p-2">
           {
