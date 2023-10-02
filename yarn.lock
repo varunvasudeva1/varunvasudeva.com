@@ -75,7 +75,7 @@
 
 "@astrojs/react@^3.0.2":
   version "3.0.2"
-  resolved "https://registry.npmjs.org/@astrojs/react/-/react-3.0.2.tgz"
+  resolved "https://registry.yarnpkg.com/@astrojs/react/-/react-3.0.2.tgz#f74026bbeacb324bae55473c3ccf93d822558fdb"
   integrity sha512-aooNIuQxTg+IWGMZPuIEwBeBi4/TCPCMsr3714zuLjAjukVd5ZrX/bCNxJqDWU4HNwUm4XFU1OhcEvYOHa5uMQ==
   dependencies:
     "@vitejs/plugin-react" "^4.0.4"
@@ -99,7 +99,7 @@
 
 "@astrojs/tailwind@^5.0.0":
   version "5.0.0"
-  resolved "https://registry.npmjs.org/@astrojs/tailwind/-/tailwind-5.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/@astrojs/tailwind/-/tailwind-5.0.0.tgz#4efcbbbd1206eb15b3624d93f1930164ab193720"
   integrity sha512-bMZZNNm/SW+ijUKMQDhdiuNWDdR3CubEKUHb2Ran4Arx1ikWn/kKIkFDXUV+MUnsLa7s19x9VMRlARRyKbqMkQ==
   dependencies:
     autoprefixer "^10.4.15"
@@ -906,7 +906,7 @@ astring@^1.8.0:
 
 astro@^3.2.0:
   version "3.2.0"
-  resolved "https://registry.npmjs.org/astro/-/astro-3.2.0.tgz"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-3.2.0.tgz#699fca50f3c424ed562bae660d78d0813821e528"
   integrity sha512-sDQnSFV46ZzNkVU6co5f8wilZFmGiWsqnIVoMhd5/XPU76iZdA40WqFyBOhGaji7hGuqbcjN8MGobMg53lsoUg==
   dependencies:
     "@astrojs/compiler" "^2.1.0"
