@@ -3,7 +3,7 @@ import Page from "../layouts/Page.astro";
 import Card from "../layouts/Card.astro";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob("./articles/*.{md,mdx}")).sort(
+const posts = (await Astro.glob("./articles/*.{md,mdx}"))?.sort(
   (a, b) =>
     new Date(b.frontmatter.pubDate).valueOf() -
     new Date(a.frontmatter.pubDate).valueOf()
@@ -14,18 +14,23 @@ const posts = (await Astro.glob("./articles/*.{md,mdx}")).sort(
   <section class="pt-10">
     <ul>
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4"
+        class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 p-8"
       >
         {
           posts.map((post) => (
             <a
-              class="text-gray-200 text-lg font-sans font-semibold visited:text-teal-500"
               href={post.url}
+              class="flex"
             >
-              <Card className="flex flex-col p-4 h-24">
+              <Card className="flex-col w-full p-4 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+                <h2 class="text-gray-100 text-xl lg:text-2xl font-sans font-semibold">
                 {post.frontmatter.title}
+                </h2>
+                  <p class="text-emerald-500 text-lg lg:text-xl font-sans font-bold">
+                  {post.frontmatter.category}
+                </p>
                 <p1
-                  class="text-gray-300 text-md font-sans font-normal"
+                  class="text-gray-300 text-md lg:text-lg font-sans font-medium"
                   datetime={post.frontmatter.pubDate}
                 >
                   {new Date(post.frontmatter.pubDate).toLocaleDateString(
@@ -35,8 +40,20 @@ const posts = (await Astro.glob("./articles/*.{md,mdx}")).sort(
                       month: "short",
                       day: "numeric",
                     }
-                  )}
+                  )} • {post.frontmatter.length}
                 </p1>
+                <p class="text-gray-200 text-md lg:text-lg font-sans font-normal">
+                  {post.frontmatter.description}
+                </p>
+                {post.frontmatter.topics && (
+                  <div class="flex flex-wrap">
+                    {post.frontmatter.topics.map((topic: string) => (
+                      <span class="text-gray-200 text-sm lg:text-md font-sans font-medium bg-emerald-600 bg-opacity-50 rounded-xl mt-2 mr-2 p-2">
+                        {topic}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </Card>
             </a>
           ))
