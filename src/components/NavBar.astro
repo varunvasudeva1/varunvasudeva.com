@@ -2,6 +2,7 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa/index";
 import { IoMdMail } from "react-icons/io/index";
 import HeaderLink from "./HeaderLink.astro";
+import { HeaderMenu } from "./HeaderMenu";
 
 const { title }: { title?: string } = Astro.props;
 
@@ -24,23 +25,7 @@ const backgroundColor =
     <a href="/" class="text-white">Varun Vasudeva</a>
   </h1>
 
-  <button
-    class="sm:hidden flex items-center text-white text-xl lg:text-2xl p-1 rounded-full"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="h-5 w-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="#fff"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M4 6h16M4 12h16m-7 6h7"></path>
-    </svg>
-  </button>
+  <HeaderMenu client:load />
 
   <nav
     class="hidden sm:flex flex-row items-center justify-center mr-2 max-w-sm"
