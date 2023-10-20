@@ -59,7 +59,9 @@ export default function NavBar({ activePage }: { activePage?: string }) {
         >
           <FaLinkedin className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2 transition-all ease-in-out duration-300" />
         </a>
-        <IoMdMail className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2 transition-all ease-in-out duration-300" />
+        <a href="mailto:varunvasudeva1@gmail.com">
+          <IoMdMail className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2 transition-all ease-in-out duration-300" />
+        </a>
       </div>
     </header>
   );
