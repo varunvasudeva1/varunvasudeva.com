@@ -100,7 +100,7 @@ export const HeaderMenu = () => {
               </a>
             ))}
           </div>
-          <div class="flex flex-row items-center justify-end mx-4 p-3 space-x-2 bg-zinc-600 rounded-full">
+          <div className="flex flex-row items-center justify-end mx-4 p-3 space-x-2 bg-zinc-600 rounded-full">
             <a
               href="https://github.com/varunvasudeva1"
               target="_blank"

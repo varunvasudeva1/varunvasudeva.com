@@ -1,10 +1,11 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
-import NavBar from "../components/NavBar.astro";
+import NavBar from "../components/NavBar.tsx";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
-const { title }: { title?: string } = Astro.props;
+const { title } = Astro.props;
+const { pathname } = Astro.url;
 const background =
   title === "Home"
     ? "transparent"
@@ -23,7 +24,7 @@ const background =
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="bg-zinc-950">
-    <NavBar title={title} />
+    <NavBar client:load activePage={pathname} />
     <main
       class={`bg-gradient-to-br ${background} w-full min-h-screen z-0 pt-20`}
     >
