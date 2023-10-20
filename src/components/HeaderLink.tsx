@@ -1,17 +1,15 @@
 const HeaderLink = ({
-  href = "/",
-  activePage = "/",
-  bgColor = "bg-opacity-0",
+  href,
+  activePage,
 }: {
   href: string;
   activePage?: string;
-  bgColor?: string;
 }) => {
   return (
     <a
       href={href}
-      className={`font-sans text-sm lg:text-md font-semibold py-1 px-2 lg:px-3 rounded-lg text-gray-200 hover:text-opacity-60 ${bgColor} ${
-        href === activePage ? "bg-opacity-100" : "bg-opacity-0"
+      className={`font-sans text-sm lg:text-md font-semibold p-2 m-1 rounded-md text-gray-200 hover:text-opacity-60 hover:scale-110 bg-zinc-300 hover:bg-opacity-10 transition-all ease-in-out duration-300 ${
+        href === activePage ? "bg-opacity-30" : "bg-opacity-0"
       }`}
     >
       {href === "/"

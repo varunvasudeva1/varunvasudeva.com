@@ -5,17 +5,6 @@ import { HeaderMenu } from "./HeaderMenu";
 import { useEffect } from "react";
 
 export default function NavBar({ activePage }: { activePage?: string }) {
-  const bgColor =
-    activePage === "/"
-      ? "transparent"
-      : activePage === "/code"
-      ? "bg-orange-800"
-      : activePage === "/music"
-      ? "bg-pink-800"
-      : activePage === "/articles"
-      ? "bg-teal-800"
-      : "transparent";
-
   useEffect(() => {
     const header = document.querySelector("header");
     if (!header) return;
@@ -49,34 +38,28 @@ export default function NavBar({ activePage }: { activePage?: string }) {
       <HeaderMenu />
 
       <nav className="hidden lg:flex flex-row items-center justify-center mr-2 max-w-sm">
-        <HeaderLink href="/" activePage={activePage} bgColor={bgColor} />
-        <HeaderLink href="/code" activePage={activePage} bgColor={bgColor} />
-        <HeaderLink href="/music" activePage={activePage} bgColor={bgColor} />
-        <HeaderLink
-          href="/articles"
-          activePage={activePage}
-          bgColor={bgColor}
-        />
+        <HeaderLink href="/" activePage={activePage} />
+        <HeaderLink href="/code" activePage={activePage} />
+        <HeaderLink href="/music" activePage={activePage} />
+        <HeaderLink href="/articles" activePage={activePage} />
       </nav>
 
-      <div
-        className={`hidden lg:flex flex-row items-center justify-end p-1 rounded-full ${bgColor}`}
-      >
+      <div className="hidden lg:flex flex-row items-center justify-end p-1 rounded-full">
         <a
           href="https://github.com/varunvasudeva1"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaGithub className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2" />
+          <FaGithub className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2 transition-all ease-in-out duration-300" />
         </a>
         <a
           href="https://www.linkedin.com/in/varunvasudeva1/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaLinkedin className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2" />
+          <FaLinkedin className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2 transition-all ease-in-out duration-300" />
         </a>
-        <IoMdMail className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2" />
+        <IoMdMail className="text-white hover:text-opacity-70 text-xl lg:text-2xl mx-1 lg:mx-2 transition-all ease-in-out duration-300" />
       </div>
     </header>
   );
