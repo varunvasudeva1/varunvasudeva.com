@@ -10,11 +10,11 @@ const background =
   title === "Home"
     ? "transparent"
     : title === "Code"
-    ? "from-red-900 to-amber-700"
+    ? "bg-red-900 from-red-900 to-amber-700"
     : title === "Music"
-    ? "from-fuchsia-900 to-rose-700"
+    ? "bg-fuchsia-900 from-fuchsia-900 to-rose-700"
     : title === "Articles"
-    ? "from-emerald-900 to-cyan-700"
+    ? "bg-emerald-900 from-emerald-900 to-cyan-700"
     : "transparent";
 ---
 
@@ -23,10 +23,10 @@ const background =
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="bg-zinc-950">
+  <body class={`bg-gradient-to-t ${background}`}>
     <NavBar client:load activePage={pathname} />
     <main
-      class={`bg-gradient-to-br ${background} w-full min-h-screen z-0 pt-20`}
+      class={`bg-gradient-to-b ${background} w-full min-h-screen z-0 pt-20`}
     >
       <h1 class="text-5xl md:text-6xl font-bold text-white pt-4 px-4">
         {title}
