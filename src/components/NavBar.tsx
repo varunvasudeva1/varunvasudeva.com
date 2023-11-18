@@ -5,20 +5,25 @@ import { HeaderMenu } from "./HeaderMenu";
 import { useEffect } from "react";
 
 export default function NavBar({ activePage }: { activePage?: string }) {
+  const background =
+    activePage === "/"
+      ? "transparent"
+      : activePage === "/code"
+      ? "bg-red-900 from-red-900 to-amber-700"
+      : activePage === "/music"
+      ? "bg-fuchsia-900 from-fuchsia-900 to-rose-700"
+      : activePage === "/articles"
+      ? "bg-emerald-900 from-emerald-900 to-cyan-700"
+      : "transparent";
+
   useEffect(() => {
     const header = document.querySelector("header");
     if (!header) return;
     const handleScroll = () => {
       if (window.scrollY > 0) {
         header.classList.add("shadow-lg");
-        header.classList.add("bg-opacity-50");
-        header.classList.add("bg-zinc-800");
-        header.classList.remove("bg-opacity-0");
       } else {
         header.classList.remove("shadow-lg");
-        header.classList.remove("bg-opacity-50");
-        header.classList.remove("bg-zinc-800");
-        header.classList.add("bg-opacity-0");
       }
     };
     window.addEventListener("scroll", handleScroll);
@@ -28,7 +33,9 @@ export default function NavBar({ activePage }: { activePage?: string }) {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 flex flex-row items-center justify-between p-4 z-50 backdrop-blur-3xl transition-all ease-in-out duration-500">
+    <header
+      className={`fixed top-0 left-0 right-0 flex flex-row items-center justify-between p-4 z-50 backdrop-blur-2xl ${background} transition-all ease-in-out duration-500`}
+    >
       <h1 className="text-xl lg:text-2xl font-bold flex-grow">
         <a href="/" className="text-white">
           Varun Vasudeva
