@@ -1,0 +1,66 @@
+---
+import Card from "../layouts/Card.astro";
+import Page from "../layouts/Page.astro";
+---
+
+<Page title="Music">
+  <section class="flex flex-col items-center justify-center mx-5">
+    <Card className="flex flex-col items-center justify-center p-4 max-w-3xl">
+      <img
+        src="/images/the-emergent.jpg"
+        alt="The Emergent"
+        class="rounded-full size-36 lg:size-44 mb-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:cursor-pointer hover:bg-opacity-80 hover:scale-105 transition-all duration-300 ease-in-out transform"
+      />
+      <p class="text-stone-700 text-lg lg:text-xl mb-5">
+        I started writing, producing, and recording songs when I was 16 years
+        old. I release music both under my own name and under the moniker <span
+          class="font-bold text-black">The Emergent</span
+        >. Under my stage name, I released two singles, Pink Glow and Keep It
+        Down. Under my name, I released three singles as part of an EP - The
+        Dark Room. Have a listen below!
+      </p>
+    </Card>
+    <section
+      class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center justify-center my-4 mx-5"
+    >
+      <iframe
+        src="https://open.spotify.com/embed/track/08SoAk1UMG0VCQw6J42ZH4?utm_source=generator"
+        class="h-40 transition-all duration-300 ease-in-out"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+      <iframe
+        src="https://open.spotify.com/embed/track/2AXpcGKEnyEZtaTeSG1InI?utm_source=generator"
+        class="h-40 transition-all duration-300 ease-in-out"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+    </section>
+
+    <div class="border-t-2 border-black w-full my-4"></div>
+
+    <section
+      class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center justify-center my-4 mx-5"
+    >
+      <iframe
+        class="h-72 lg:h-80 transition-all duration-300 ease-in-out"
+        src="https://www.youtube-nocookie.com/embed/IjcmVtCmrgE"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+      <iframe
+        class="h-72 lg:h-80 transition-all duration-300 ease-in-out"
+        src="https://www.youtube-nocookie.com/embed/APgxhr7A_84"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+      <iframe
+        class="h-72 lg:h-80 transition-all duration-300 ease-in-out"
+        src="https://www.youtube-nocookie.com/embed/N5jxCNMGR6Y"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </section>
+  </section>
+</Page>

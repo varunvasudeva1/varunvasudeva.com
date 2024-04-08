@@ -1,0 +1,63 @@
+---
+title: "Project";
+description: "A project card, used to display a software engineering/data science project on the /code page.";
+
+import Card from "./Card.astro";
+
+export interface Props {
+  title: string;
+  description: string;
+  link?: string;
+  linkText?: string;
+  buttonLink?: string;
+  buttonLinkText?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description,
+  link,
+  linkText,
+  buttonLink,
+  buttonLinkText,
+  image,
+} = Astro.props as Props;
+---
+
+<Card className="flex-col items-start justify-center p-2 lg:p-3">
+  {
+    image && (
+      <img
+        class="object-cover w-full h-64 lg:h-72"
+        src={image}
+        alt={title + ": " + description}
+      />
+    )
+  }
+  <span class="m-5">
+    <span class="flex-row flex items-baseline space-x-2">
+      <h1 class="font-sans text-xl sm:text-2xl font-bold text-stone-900">
+        {title}
+      </h1>
+      {
+        link && (
+          <a class="text-orange-700 text-base font-mono" href={link}>
+            {linkText || "View on GitHub"}
+          </a>
+        )
+      }
+    </span>
+    <p class="font-sans text-base sm:text-lg text-stone-700">{description}</p>
+    {
+      buttonLink && (
+        <a
+          class="font-mono bg-orange-800 bg-opacity-90 text-gray-200 hover:bg-opacity-80 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 text-md font-semibold p-4 mt-5 border-4 border-black flex text-center items-center justify-center self-center transition-all duration-300 ease-in-out transform"
+          href={buttonLink}
+        >
+          {buttonLinkText || "Learn More"}
+        </a>
+      )
+    }
+  </span>
+</Card>

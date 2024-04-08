@@ -1,50 +1,213 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import {
+  RiCodeSSlashFill,
+  RiQuillPenLine,
+  RiVoiceprintFill,
+} from "react-icons/ri";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { BsChevronDoubleDown } from "react-icons/bs";
+import Card from "../layouts/Card.astro";
+
+const choiceList = [
+  {
+    index: 0,
+    icon: "RiCodeSSlashFill",
+    page: "code",
+    className: "font-sans font-semibold text-xl sm:text-2xl text-stone-800",
+  },
+  {
+    index: 1,
+    icon: "RiVoiceprintFill",
+    page: "music",
+    className: "font-sans font-semibold text-xl sm:text-2xl text-stone-800",
+  },
+  {
+    index: 2,
+    icon: "RiQuillPenLine",
+    page: "articles",
+    className: "font-sans font-semibold text-xl sm:text-2xl text-stone-800",
+  },
+];
+
+const factCards = [
+  {
+    index: 0,
+    title: "Job",
+    description: "Data Architect",
+    organization: "Capgemini",
+  },
+  {
+    index: 1,
+    title: "Education",
+    description: "B.S. Mathematics",
+    description2: "B.S. Data Science & Statistics",
+    organization: "Miami University, OH",
+  },
+  {
+    index: 2,
+    title: "Hobbies",
+    description: "Coding, Music Production, Cooking, Writing, Movie Watching",
+  },
+];
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  <body class="flex flex-col w-full min-h-screen bg-stone-200 text-stone-600">
+    <section
+      class="flex flex-col items-center justify-center w-screen min-h-screen bg-stone-200"
+    >
+      <div
+        class="flex flex-col justify-start items-center space-y-2 max-w-md md:max-w-xl lg:max-w-2xl"
+      >
+        <img
+          class="rounded-full size-36 lg:size-44 border-4 border-black hover:cursor-pointer hover:bg-opacity-80 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-all duration-300 ease-in-out transform"
+          src="/images/profile.jpg"
+          alt="Varun's profile picture"
+        />
+        <h1
+          class="font-sans text-4xl sm:text-5xl text-center text-stone-800 font-bold"
+        >
+          Varun Vasudeva
+        </h1>
+      </div>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-2 mt-5"
+      >
+        {
+          choiceList.map((choice) => (
+            <a
+              href={`/${choice.page}`}
+              class="flex flex-row w-full items-center justify-between border-4 border-black hover:cursor-pointer hover:bg-opacity-80 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-all duration-300 ease-in-out transform space-x-2 p-2"
+            >
+              <h3 class={choice.className}>{choice.page}</h3>
+              <div class="text-4xl sm:text-5xl text-stone-600">
+                {choice.icon === "RiCodeSSlashFill" ? (
+                  <RiCodeSSlashFill />
+                ) : choice.icon === "RiVoiceprintFill" ? (
+                  <RiVoiceprintFill />
+                ) : (
+                  <RiQuillPenLine />
+                )}
+              </div>
+            </a>
+          ))
+        }
+      </div>
+      <div class="flex flex-col items-center absolute bottom-5">
+        <h4 class="font-mono text-lg lg:text-xl mb-2">
+          Scroll down to learn more
+        </h4>
+        <BsChevronDoubleDown className="text-2xl sm:text-3xl animate-pulse" />
+      </div>
+    </section>
+
+    <section
+      class="flex flex-col items-center justify-center w-screen bg-stone-300"
+    >
+      <div class="flex flex-col items-center sm:items-start p-2">
+        <h3 class="font-sans text-3xl sm:text-4xl m-4 font-bold">
+          Quick facts
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 p-2">
+          {
+            factCards.map((card) => (
+              <Card className="p-2 m-2 max-w-xs">
+                <div class="flex flex-col items-start justify-start w-full space-y-2">
+                  <h4 class="font-sans font-semibold text-xl sm:text-2xl text-stone-800">
+                    {card.title.toLowerCase()}
+                  </h4>
+                  <div
+                    role="separator"
+                    class="w-full h-px rounded-full bg-white opacity-50"
+                  />
+                  <p class="font-mono text-lg text-stone-800">
+                    {card.description}
+                  </p>
+                  {card.description2 && (
+                    <p class="font-mono text-lg text-stone-800">
+                      {card.description2}
+                    </p>
+                  )}
+                  <p class="font-mono font-bold text-lg">{card.organization}</p>
+                </div>
+              </Card>
+            ))
+          }
+          <Card className="p-2 m-2 max-w-xs">
+            <div
+              class="flex flex-col items-start justify-start w-full space-y-2"
+            >
+              <h4
+                class="font-sans font-semibold text-xl sm:text-2xl text-stone-800"
+              >
+                languages
+              </h4>
+              <div
+                role="separator"
+                class="w-full h-px rounded-full bg-white opacity-50"
+              >
+              </div>
+              <p class="font-mono text-lg sm:text-xl">
+                English <span class="italic text-stone-400"> fluent</span>
+              </p>
+              <p class="font-mono text-lg sm:text-xl">
+                Hindi <span class="italic text-stone-400"> fluent</span>
+              </p>
+              <p class="font-mono text-lg sm:text-xl">
+                Arabic <span class="italic text-stone-400"> elementary</span>
+              </p>
+              <p class="font-mono text-lg sm:text-xl">
+                French <span class="italic text-stone-400"> elementary</span>
+              </p>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <section class="flex flex-col items-center w-screen">
+      <div
+        class="flex flex-col w-screen lg:w-3/4 2xl:w-1/2 p-10 gap-4 lg:gap-8"
+      >
+        <div class="flex flex-col self-start justify-start items-start">
+          <h3 class="font-sans text-xl sm:text-2xl font-bold text-stone-800">
+            Who are you?
+          </h3>
+          <p class="text-lg sm:text-xl font-normal mt-4">
+            A 24-year old data architect by profession and software
+            engineer/musician by hobby.
+            <br />
+            <br />
+            At my core, I enjoy building things that are useful and beautiful. I
+            aim to create things that genuinely better peoples' lives - whether that
+            be through software, music, or writing.
+          </p>
+        </div>
+
+        <div class="flex flex-col self-end justify-end items-start">
+          <h3 class="font-sans text-xl sm:text-2xl font-bold text-stone-800">
+            What are you doing now?
+          </h3>
+          <p class="text-lg sm:text-xl font-normal mt-4">
+            I currently work as a data architect at Capgemini, where I help
+            clients gain insight from large amounts of data by developing data
+            pipelines and data visualizations. I frequently use Power BI, Power
+            Automate, and the Azure cloud platform to develop solutions.
+            <br />
+            <br />
+            I also enjoy working on personal projects on the side - my latest project
+            is an open-source tool that allows developers to easily get started with
+            new projects by getting name, slogan, execution plan, and tech stack
+            recommendations with a single click.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </body>
 </html>

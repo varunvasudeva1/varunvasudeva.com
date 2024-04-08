@@ -1,0 +1,54 @@
+---
+import Page from "../layouts/Page.astro";
+import Card from "../layouts/Card.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("articles")).sort(
+  (a, b) => b.data.pubDate - a.data.pubDate
+);
+
+const categoryColors: {
+  [key: string]: string;
+} = {
+  Literature: "from-indigo-500 to-indigo-800",
+  Philosophy: "from-amber-500 to-amber-900",
+};
+---
+
+<Page title="Articles">
+  <ul>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4"
+    >
+      {
+        posts.map((post) => (
+          <a href={`/articles/${post.slug}`} class="flex no-underline">
+            <Card className="flex-col w-full p-4 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+              <h2 class="text-stone-800 text-lg lg:text-xl font-sans font-semibold">
+                {post.data.title}
+              </h2>
+              <p
+                class={`text-md lg:text-lg font-sans font-bold bg-clip-text text-transparent bg-gradient-to-tr ${
+                  categoryColors[post.data.category]
+                }`}
+              >
+                {post.data.category}
+              </p>
+              <p class="text-stone-700 text-md lg:text-lg font-sans font-medium">
+                {new Date(post.data.pubDate).toLocaleDateString("en-us", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}{" "}
+                • {post.data.length}
+              </p>
+              <p class="text-stone-700 text-md lg:text-lg font-sans font-normal">
+                {post.data.description}
+              </p>
+            </Card>
+          </a>
+        ))
+      }
+    </div>
+  </ul>
+</Page>

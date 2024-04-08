@@ -1,0 +1,114 @@
+---
+import Card from "../layouts/Card.astro";
+import Page from "../layouts/Page.astro";
+import Project from "../layouts/Project.astro";
+import { BsCloudFill, BsFillTerminalFill } from "react-icons/bs";
+import { BiNetworkChart } from "react-icons/bi";
+import { FaRegHandshake } from "react-icons/fa";
+import Marquee from "../components/Marquee";
+
+const items = [
+  { source: "/images/logos/typescript-logo.png", alt: "TypeScript" },
+  { source: "/images/logos/python-logo.png", alt: "Python" },
+  { source: "/images/logos/java-logo.png", alt: "Java" },
+  {
+    source: "/images/logos/react-logo.png",
+    alt: "React and React Native",
+    style: "object-contain",
+  },
+  { source: "/images/logos/nextjs-logo.png", alt: "NextJS" },
+  { source: "/images/logos/astro-logo.png", alt: "Astro" },
+  {
+    source: "/images/logos/tailwind-logo.png",
+    alt: "TailwindCSS",
+    style: "object-contain",
+  },
+  { source: "/images/logos/git-logo.png", alt: "Git" },
+  { source: "/images/logos/figma-logo.png", alt: "Figma" },
+];
+---
+
+<Page title="Code">
+  <section class="flex flex-col items-center justify-center">
+    <Card className="flex flex-col items-center justify-center p-4 max-w-3xl">
+      <div class="flex flex-col flex-wrap items-center justify-center mb-5">
+        <h1 class="text-3xl lg:text-4xl text-stone-800 font-bold">
+          Software Engineer
+        </h1>
+        <FaRegHandshake className="text-5xl lg:text-6xl text-stone-800 mx-3" />
+        <h1 class="text-3xl lg:text-4xl text-stone-800 font-bold">
+          Data Scientist
+        </h1>
+      </div>
+      <div class="border-b border-gray-200 w-full mb-5"></div>
+      <div class="grid grid-cols-1 gap-3 md:grid-cols-3 lg:gap-5">
+        <div class="flex flex-col items-start">
+          <BsFillTerminalFill className="size-10 text-stone-800" />
+          <h2 class="text-xl lg:text-2xl text-stone-800 font-semibold mt-2">
+            Full Stack
+          </h2>
+          <p class="text-stone-700">
+            Extensive experience building full-stack mobile & web applications
+            using an array of technologies
+          </p>
+        </div>
+        <div class="flex flex-col items-start">
+          <BiNetworkChart className="size-10 text-stone-800" />
+          <h2 class="text-xl lg:text-2xl text-stone-800 font-semibold mt-2">
+            Machine Learning
+          </h2>
+          <p class="text-stone-700">
+            Proficiency building and using SoTA machine learning models for a
+            variety of applications
+          </p>
+        </div>
+        <div class="flex flex-col items-start">
+          <BsCloudFill className="size-10 text-stone-800" />
+          <h2 class="text-xl lg:text-2xl text-stone-800 font-semibold mt-2">
+            Cloud Computing
+          </h2>
+          <p class="text-stone-700">
+            Demonstrated expertise in building and deploying applications on
+            cloud platforms
+          </p>
+        </div>
+      </div>
+    </Card>
+
+    <Marquee items={items} />
+
+    {/* Showcase */}
+    <section class="flex flex-col items-center justify-center">
+      <h1
+        class="text-2xl lg:text-3xl text-stone-800 font-bold mb-5 transition-all duration-200"
+      >
+        Featured Projects
+      </h1>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <Project
+          title="Accrue"
+          description="A web app that allows users to centralize their tech project's resources, such as links, files, and notes, in one place. Launchpad also features an easy-to-use questionnaire powered by GPT-3.5 that suggests stack tools. Users can also share their projects with others, allowing for easy collaboration."
+          image="images/launchpad-icon.png"
+          buttonLink="https://accrueapp.com"
+          buttonLinkText="Go to Accrue"
+        />
+        <Project
+          title="Archive"
+          description="A highly personalizable, AI-powered journaling app that allows users to record their thoughts, feelings, and memories. Archive uses natural language processing to analyze logs and provide insights on their sentiments. It also features full-text search over entries, allowing users to access their logs quickly and easily."
+          image="images/archive-app-icon.png"
+          link="https://archiveapp.io"
+          linkText="archiveapp.io"
+          buttonLink="https://apps.apple.com/us/app/archive-ai-powered-journaling/id1615879510"
+          buttonLinkText="Download on the App Store"
+        />
+        <Project
+          title="Predicting Electron Mass Using Neural Networks"
+          description="A neural network that takes tabular data, collected at CERN's Large Hadron Collider and made available on Kaggle, such as electron spin, position, charge, etc. of a pair of electrons as input and predicts the invariant mass of the electron pair."
+          image="images/cern-lhc.jpg"
+          buttonLink="https://github.com/varunvasudeva1/cern-ec"
+          buttonLinkText="View on GitHub"
+        />
+      </div>
+    </section>
+  </section>
+</Page>
