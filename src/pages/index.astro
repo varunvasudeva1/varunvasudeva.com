@@ -9,6 +9,7 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { BsChevronDoubleDown } from "react-icons/bs";
 import Card from "../layouts/Card.astro";
+import Button from "../components/Button";
 
 const choiceList = [
   {
@@ -79,21 +80,16 @@ const factCards = [
       >
         {
           choiceList.map((choice) => (
-            <a
-              href={`/${choice.page}`}
-              class="flex flex-row w-full items-center justify-between border-4 border-black hover:cursor-pointer hover:bg-opacity-80 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-all duration-300 ease-in-out transform space-x-2 p-2"
-            >
+            <Button href={`/${choice.page}`}>
               <h3 class={choice.className}>{choice.page}</h3>
-              <div class="text-4xl sm:text-5xl text-stone-600">
-                {choice.icon === "RiCodeSSlashFill" ? (
-                  <RiCodeSSlashFill />
-                ) : choice.icon === "RiVoiceprintFill" ? (
-                  <RiVoiceprintFill />
-                ) : (
-                  <RiQuillPenLine />
-                )}
-              </div>
-            </a>
+              {choice.icon === "RiCodeSSlashFill" ? (
+                <RiCodeSSlashFill className="text-3xl sm:text-4xl text-stone-600 ml-4" />
+              ) : choice.icon === "RiVoiceprintFill" ? (
+                <RiVoiceprintFill className="text-3xl sm:text-4xl text-stone-600 ml-4" />
+              ) : (
+                <RiQuillPenLine className="text-3xl sm:text-4xl text-stone-600 ml-4" />
+              )}
+            </Button>
           ))
         }
       </div>
