@@ -26,7 +26,7 @@ export default function NavBar({ activePage }: { activePage?: string }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 flex flex-row items-center justify-between p-2 bg-stone-200 border-4 border-black z-50 transition-all ease-in-out duration-500`}
+      className={`fixed top-0 left-0 right-0 flex flex-row items-center justify-between p-2 bg-stone-200 border-b-4 border-black z-50 transition-all ease-in-out duration-500`}
     >
       <a
         href="/"

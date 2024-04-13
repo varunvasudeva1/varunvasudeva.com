@@ -69,7 +69,7 @@ export const HeaderMenu = () => {
       >
         <nav
           id="default-sidebar"
-          className={`fixed flex flex-col justify-start items-start top-0 right-0 w-56 lg:w-64 p-4 h-screen overflow-y-auto ${
+          className={`fixed flex flex-col justify-start items-start top-0 right-0 w-56 lg:w-64 p-2 h-screen overflow-y-auto ${
             isOpen
               ? "transform translate-x-0 ease-in"
               : "transform -translate-x-full ease-out"
@@ -78,7 +78,7 @@ export const HeaderMenu = () => {
         >
           <button
             onClick={toggleSidebar}
-            className="flex self-end text-stone-800 hover:text-stone-700 hover:opacity-90 p-1"
+            className="flex self-end text-stone-800 hover:text-stone-700 hover:opacity-90"
           >
             <BsX className="size-8 lg:size-10" />
           </button>
