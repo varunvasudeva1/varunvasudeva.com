@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import NavBar from "../components/NavBar.tsx";
 import Footer from "../components/Footer.astro";
+import { format } from "date-fns";
 
 export interface Props {
   content: {
@@ -34,7 +35,7 @@ const {
           {title}
         </h1>
         <p class="text-stone-700 text-lg lg:text-xl font-medium mb-2">
-          {pubDate} • {length}
+          {format(pubDate, "PP")} • {length}
         </p>
         <p class="text-stone-700 text-lg lg:text-xl font-medium mb-2">
           {description}
