@@ -23,7 +23,6 @@ const items = [
     alt: "TailwindCSS",
     style: "object-contain",
   },
-  { source: "/logos/git-logo.png", alt: "Git" },
 ];
 ---
 
@@ -74,7 +73,7 @@ const items = [
       </div>
     </Card>
 
-    <Marquee items={items} />
+    <Marquee client:load items={items} />
 
     {/* Showcase */}
     <section class="flex flex-col items-center justify-center">
