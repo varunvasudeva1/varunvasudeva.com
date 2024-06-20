@@ -6,6 +6,7 @@ import {
   RiVoiceprintFill,
   RiQuillPenLine,
   RiMenu5Fill,
+  RiCameraLensLine,
 } from "react-icons/ri";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
@@ -38,6 +39,11 @@ export const HeaderMenu = () => {
       link: "/articles",
       title: "Articles",
       icon: "RiQuillPenLine",
+    },
+    {
+      link: "/photos",
+      title: "Photos",
+      icon: "RiCameraLensLine",
     },
   ];
 
@@ -88,13 +94,14 @@ export const HeaderMenu = () => {
                 key={index}
                 href={item.link}
                 onClick={toggleSidebar}
-                className="flex flex-row items-center justify-between text-lg lg:text-xl font-mono font-semibold pl-2 pr-10 py-1 text-stone-800 hover:text-stone-700 border-b-2 border-black hover:border-2 hover:bg-opacity-80 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-all duration-100 ease-in-out transform"
+                className="flex flex-row items-center justify-between text-lg lg:text-xl font-mono font-semibold pl-2 pr-10 py-1 text-stone-800 hover:text-stone-700 border-b-2 border-black hover:border-2 hover:bg-opacity-80 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-100 ease-in-out transform"
               >
                 <span className="flex flex-row items-center space-x-2">
                   {item.icon === "RiHome2Line" && <RiHome2Line />}
                   {item.icon === "RiCodeSSlashFill" && <RiCodeSSlashFill />}
                   {item.icon === "RiVoiceprintFill" && <RiVoiceprintFill />}
                   {item.icon === "RiQuillPenLine" && <RiQuillPenLine />}
+                  {item.icon === "RiCameraLensLine" && <RiCameraLensLine />}
                   <span>{item.title}</span>
                 </span>
               </a>

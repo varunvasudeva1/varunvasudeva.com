@@ -42,6 +42,7 @@ export default function NavBar({ activePage }: { activePage?: string }) {
         <HeaderLink href="/code" activePage={cleanActivePage} />
         <HeaderLink href="/music" activePage={cleanActivePage} />
         <HeaderLink href="/articles" activePage={cleanActivePage} />
+        <HeaderLink href="/photos" activePage={cleanActivePage} />
       </nav>
 
       <div className="hidden lg:flex flex-row items-center justify-end p-2 space-x-2 bg-stone-800">

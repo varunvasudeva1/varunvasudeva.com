@@ -1,0 +1,118 @@
+---
+import ImageCard from "../components/ImageCard";
+import Page from "../layouts/Page.astro";
+
+const photos: {
+  url: string;
+  title?: string;
+  description?: string;
+  details?: string;
+}[] = [
+  {
+    url: "photos/pvowxly7rxsyirx2yylh",
+    title: "Bubble Clouds",
+    description: "Dallas, TX, USA",
+    details: "Apple iPhone 14 Pro, 6.86mm f/1.8",
+  },
+  {
+    url: "photos/kqu7vm1dbkqwufav5bat",
+    title: "Clouds on Fire",
+    description: "Dallas, TX, USA",
+    details: "Sony A6000, Rokinon 21mm f/1.4 (cropped)",
+  },
+  {
+    url: "photos/elqpqqdn5j7iohxobvyu",
+    title: "Cloud Cover",
+    description: "Dallas, TX, USA",
+    details: "Apple iPhone 14 Pro, 6.86mm f/1.8",
+  },
+  {
+    url: "photos/ayqs3rlzjelmsgyxuubh",
+    title: "Sea",
+    description: "Ft. Lauderdale, FL, USA",
+    details: "Apple iPhone 14 Pro, 6.86mm f/1.8",
+  },
+  {
+    url: "photos/qsgq4dmhzngh9azd63ng",
+    title: "Sunset over Sea",
+    description: "Fort Morgan, AL, USA",
+    details: "Apple iPhone 14 Pro, 6.86mm f/1.8",
+  },
+  {
+    url: "photos/pxf36kcfwzdrtwwlts1u",
+    title: "New York Plaza",
+    description: "New York, NY, USA",
+    details: "Apple iPhone 11, 4.25mm f/1.8",
+  },
+  {
+    url: "photos/hxhcuy9tzbscjzkecmd7",
+    title: "34 St-Herald Square",
+    description: "New York, NY, USA",
+    details: "Apple iPhone 11, 4.25mm f/1.8",
+  },
+  {
+    url: "photos/tvcugeqiucv3os8rc2my",
+    title: "Washington Monument",
+    description: "Washington, D.C., USA",
+    details: "Apple iPhone 11, 4.25mm f/1.8",
+  },
+  {
+    url: "photos/ybmo67n54kwmnwzk7auc",
+    title: "Brick Wall",
+    description: "Lawrenceville, GA, USA",
+    details: "Apple iPhone 11, 4.25mm f/1.8",
+  },
+  {
+    url: "photos/zh06mtrnkwuqny13khcl",
+    title: "Plane across Bright Sky",
+    description: "Dallas, TX, USA",
+    details: "Apple iPhone 14 Pro, 6.86mm f/1.78",
+  },
+  {
+    url: "photos/ycxjur3ldbt8rsuqaafw",
+    title: "Bottlebrush",
+    details: "Apple iPhone 11, 4.25mm f/1.8",
+  },
+  {
+    url: "photos/eikscg6iqdukhsv7qx3s",
+    title: "Lilies",
+    details: "Apple iPhone 11, 4.25mm f/1.8",
+  },
+  {
+    url: "photos/gjufkiwbgrytfav5e2ae",
+    title: "Yellow Flowerbed",
+    details: "Apple iPhone 11, 4.25mm f/1.8",
+  },
+  {
+    url: "photos/yciuhgrpy774d80dtg4l",
+    title: "White Blossom Tree",
+    details: "Apple iPhone 11, 4.25mm f/1.8",
+  },
+];
+---
+
+<Page title="Photos">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 self-center">
+    {
+      photos.map((photo) => (
+        <ImageCard client:idle imageUrl={photo.url}>
+          <p class="text-black text-lg lg:text-xl italic font-bold">
+            {photo.title}
+          </p>
+          <p class="text-black text-md lg:text-lg italic">
+            {photo.description}
+          </p>
+          {photo.details && (
+            <p
+              class="text-black
+                        text-sm lg:text-md
+                        italic"
+            >
+              {photo.details}
+            </p>
+          )}
+        </ImageCard>
+      ))
+    }
+  </div>
+</Page>
