@@ -4,7 +4,7 @@ export default function Marquee({
   items: { source: string; alt: string; style?: string }[];
 }) {
   return (
-    <div className="relative flex w-full overflow-x-hidden mt-8 mb-4 border-b-2 border-t-2 border-black">
+    <div className="relative flex w-full overflow-x-hidden mt-8 mb-4 border-b-2 border-t-2 border-black max-w-xl lg:max-w-3xl">
       <div className="flex flex-row animate-marquee whitespace-nowrap py-12">
         {items.map((item) => {
           return (
@@ -13,7 +13,7 @@ export default function Marquee({
               src={item.source}
               alt={item.alt}
               className={[
-                "size-14 sm:size-18 lg:size-24 m-1",
+                "size-14 sm:size-14 lg:size-20 m-1",
                 item.style ?? "",
               ].join(" ")}
             />
@@ -29,7 +29,7 @@ export default function Marquee({
               src={item.source}
               alt={item.alt}
               className={[
-                "size-14 sm:size-18 lg:size-24 m-1",
+                "size-14 sm:size-14 lg:size-20 m-1",
                 item.style ?? "",
               ].join(" ")}
             />
