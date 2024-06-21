@@ -1,5 +1,6 @@
 ---
 import {
+  RiCameraLensLine,
   RiCodeSSlashFill,
   RiQuillPenLine,
   RiVoiceprintFill,
@@ -30,13 +31,19 @@ const choiceList = [
     page: "articles",
     className: "font-sans font-semibold text-xl sm:text-2xl text-stone-800",
   },
+  {
+    index: 2,
+    icon: "RiCameraLensLine",
+    page: "photos",
+    className: "font-sans font-semibold text-xl sm:text-2xl text-stone-800",
+  },
 ];
 
 const factCards = [
   {
     index: 0,
     title: "Job",
-    description: "Data Architect",
+    description: "Data Scientist",
     organization: "Capgemini",
   },
   {
@@ -49,7 +56,8 @@ const factCards = [
   {
     index: 2,
     title: "Hobbies",
-    description: "Coding, Music Production, Cooking, Writing, Movie Watching",
+    description:
+      "Programming, producing music, (astro)photography, cooking, writing, and watching movies",
   },
 ];
 ---
@@ -75,9 +83,7 @@ const factCards = [
           Varun Vasudeva
         </h1>
       </div>
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-2 mt-5"
-      >
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 p-2 mt-5">
         {
           choiceList.map((choice) => (
             <Button href={`/${choice.page}`}>
@@ -86,8 +92,10 @@ const factCards = [
                 <RiCodeSSlashFill className="text-3xl sm:text-4xl text-stone-600 ml-4" />
               ) : choice.icon === "RiVoiceprintFill" ? (
                 <RiVoiceprintFill className="text-3xl sm:text-4xl text-stone-600 ml-4" />
-              ) : (
+              ) : choice.icon === "RiQuillPenLine" ? (
                 <RiQuillPenLine className="text-3xl sm:text-4xl text-stone-600 ml-4" />
+              ) : (
+                <RiCameraLensLine className="text-3xl sm:text-4xl text-stone-600 ml-4" />
               )}
             </Button>
           ))
@@ -174,13 +182,11 @@ const factCards = [
             Who are you?
           </h3>
           <p class="text-lg sm:text-xl font-normal mt-4">
-            A 24-year old data architect by profession and software
-            engineer/musician by hobby.
-            <br />
-            <br />
-            At my core, I enjoy building things that are useful and beautiful. I
-            aim to create things that genuinely better peoples' lives - whether that
-            be through software, music, or writing.
+            A curious, eager-to-learn data scientist/software engineer with
+            strong technical and professional fundamentals. At my core, I enjoy
+            building things that are useful and beautiful. I aim to create
+            things that genuinely better peoples' lives - whether that be
+            through software, music, or writing.
           </p>
         </div>
 
@@ -189,16 +195,10 @@ const factCards = [
             What are you doing now?
           </h3>
           <p class="text-lg sm:text-xl font-normal mt-4">
-            I currently work as a data architect at Capgemini, where I help
+            I currently work as a data scientist at Capgemini, where I help
             clients gain insight from large amounts of data by developing data
             pipelines and data visualizations. I frequently use Power BI, Power
             Automate, and the Azure cloud platform to develop solutions.
-            <br />
-            <br />
-            I also enjoy working on personal projects on the side - my latest project
-            is an open-source tool that allows developers to easily get started with
-            new projects by getting name, slogan, execution plan, and tech stack
-            recommendations with a single click.
           </p>
         </div>
       </div>
