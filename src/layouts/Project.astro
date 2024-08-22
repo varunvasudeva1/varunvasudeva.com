@@ -12,32 +12,15 @@ export interface Props {
   linkText?: string;
   buttonLink?: string;
   buttonLinkText?: string;
-  image?: string;
 }
 
-const {
-  title,
-  description,
-  link,
-  linkText,
-  buttonLink,
-  buttonLinkText,
-  image,
-} = Astro.props as Props;
+const { title, description, link, linkText, buttonLink, buttonLinkText } =
+  Astro.props as Props;
 ---
 
-<Card className="flex-col items-start justify-center p-2 lg:p-3">
-  {
-    image && (
-      <img
-        class="object-cover w-full h-64 lg:h-72"
-        src={image}
-        alt={title + ": " + description}
-      />
-    )
-  }
-  <span class="m-5">
-    <span class="flex-row flex items-baseline space-x-2">
+<Card className="flex-col items-start justify-start p-2 lg:p-3 w-5/6 md:w-full">
+  <div class="flex flex-col justify-between h-full m-3">
+    <span class="flex-col flex items-baseline space-y-2">
       <h1 class="font-sans text-xl sm:text-2xl font-bold text-stone-900">
         {title}
       </h1>
@@ -47,9 +30,10 @@ const {
             {linkText || "View on GitHub"}
           </a>
         )
-      }
+      }<p class="font-sans text-base sm:text-lg text-stone-700">
+        {description}
+      </p>
     </span>
-    <p class="font-sans text-base sm:text-lg text-stone-700">{description}</p>
     {
       buttonLink && (
         <Button href={buttonLink} className="bg-orange-800 mt-2 justify-center">
@@ -59,5 +43,5 @@ const {
         </Button>
       )
     }
-  </span>
+  </div>
 </Card>
