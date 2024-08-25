@@ -8,22 +8,28 @@ import Card from "./Card.astro";
 export interface Props {
   title: string;
   description: string;
+  year: string;
   link?: string;
   linkText?: string;
   buttonLink?: string;
   buttonLinkText?: string;
 }
 
-const { title, description, link, linkText, buttonLink, buttonLinkText } =
+const { title, description, year, link, linkText, buttonLink, buttonLinkText } =
   Astro.props as Props;
 ---
 
 <Card className="flex-col items-start justify-start p-2 lg:p-3 w-5/6 md:w-full">
   <div class="flex flex-col justify-between h-full m-3">
-    <span class="flex-col flex items-baseline space-y-2">
-      <h1 class="font-sans text-xl sm:text-2xl font-bold text-stone-900">
-        {title}
-      </h1>
+    <span class="flex-col flex items-baseline space-y-2 mb-2">
+      <span class="flex-row flex items-center justify-between w-full space-x-2">
+        <h1 class="font-sans text-xl sm:text-2xl font-bold text-stone-900">
+          {title}
+        </h1>
+        <h1 class="font-sans text-md sm:text-lg font-semibold text-orange-800">
+          {year}
+        </h1>
+      </span>
       {
         link && (
           <a class="text-orange-700 text-base font-mono" href={link}>
